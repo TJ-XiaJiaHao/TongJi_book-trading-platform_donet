@@ -8,6 +8,7 @@ using System.Web.SessionState;
 using System.Security.Cryptography;
 using System.IO;
 using DLL.EmailService;
+using DLL.RandomCode;
 
 namespace net.BusinessLayer
 {
@@ -43,7 +44,9 @@ namespace net.BusinessLayer
             Random random = new Random();
             string code = "";
 
-            for (int i = 0; i < 6; i++) code += random.Next(0, 9);  //六位校验码
+            //for (int i = 0; i < 6; i++) code += random.Next(0, 9);  //六位校验码
+            RandomCode rand = new DLL.RandomCode.RandomCode();
+            code = rand.getCharNumber(6);
             messBody = messBody.Replace("@USERNAME@", ((users)HttpContext.Current.Session.Contents["userInfo"]).nickname);
             messBody = messBody.Replace("@VERIFYCODE@", code);
             HttpContext.Current.Session.Contents["verifyCode"] = code;
