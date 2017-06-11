@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DLL.UploadFile;
 
 namespace net.Controllers
 {
@@ -144,22 +145,27 @@ namespace net.Controllers
             // && fc["picture"] != null
             if (Request.Files.Count > 0)
             {
-                HttpPostedFileBase picture = Request.Files["picture"];
-                using (var binary = new BinaryReader(picture.InputStream))
-                {
-                    picDate = binary.ReadBytes(picture.ContentLength);
-                }
-            }
-            if (picDate != null && picDate.Length != 0)
-            {
                 string filename = "/images/BookPicture/" + newBook.book_id + ".jpeg";
                 newBook.picture_url = filename;
-                AccountService.uploadPhoto(picDate, filename);
+                UploadFile upload = new UploadFile();
+                upload.upload(Request.Files["picture"], filename);
+
+                //HttpPostedFileBase picture = Request.Files["picture"];
+                //using (var binary = new BinaryReader(picture.InputStream))
+                //{
+                //    picDate = binary.ReadBytes(picture.ContentLength);
+                //}
             }
-            else
-            {
-                newBook.picture_url = "~/images/BookPicture/product1.jpg";
-            }
+            //if (picDate != null && picDate.Length != 0)
+            //{
+            //    string filename = "/images/BookPicture/" + newBook.book_id + ".jpeg";
+            //    newBook.picture_url = filename;
+            //    AccountService.uploadPhoto(picDate, filename);
+            //}
+            //else
+            //{
+            //    newBook.picture_url = "~/images/BookPicture/product1.jpg";
+            //}
 
             bookDetail newBookDetail = new bookDetail()
             {

@@ -147,13 +147,13 @@ namespace net.BusinessLayer
         {
 
         }
-        public static void uploadPhoto(Byte[] imgData, string filename)
-        {
-            if (imgData != null)
-            {
-                string path = HttpContext.Current.Server.MapPath("~/" + filename);
-                System.IO.File.WriteAllBytes(path, imgData);
-            }
-        }
+        //public static void uploadPhoto(Byte[] imgData, string filename)
+        //{
+        //    if (imgData != null)
+        //    {
+        //        string path = HttpContext.Current.Server.MapPath("~/" + filename);
+        //        System.IO.File.WriteAllBytes(path, imgData);
+        //    }
+        //}
     }
 }
