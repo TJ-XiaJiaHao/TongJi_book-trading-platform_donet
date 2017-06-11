@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using net.Models;
 using System.Web.SessionState;
-using System.Security.Cryptography;
 using System.IO;
 using DLL.EmailService;
 using DLL.RandomCode;
+using DLL.EncryptAndDecrypt;
 
 namespace net.BusinessLayer
 {
@@ -25,11 +25,13 @@ namespace net.BusinessLayer
 
             if (users.Count() > 0) return false;
 
-            SHA1 sha = new SHA1CryptoServiceProvider();
-            byte[] pwd = System.Text.Encoding.Default.GetBytes(password);
+            EncryptAndDecrypt crypt = new EncryptAndDecrypt();
+            //SHA1 sha = new SHA1CryptoServiceProvider();
+            //byte[] pwd = System.Text.Encoding.Default.GetBytes(password);
 
-            pwd = sha.ComputeHash(pwd);
-            user.password = System.Text.Encoding.Default.GetString(pwd);
+            //pwd = sha.ComputeHash(pwd);
+            //user.password = System.Text.Encoding.Default.GetString(pwd);
+            user.password = crypt.Encrypt(password);
             HttpContext.Current.Session.Contents["userInfo"] = user;
 
             varifyEmail();
@@ -91,11 +93,13 @@ namespace net.BusinessLayer
         }
         public static bool accountLogin(int account, string password, netHWEntities _db)
         {
-            SHA1 sha = new SHA1CryptoServiceProvider();
-            byte[] pwd = System.Text.Encoding.Default.GetBytes(password);
+            //SHA1 sha = new SHA1CryptoServiceProvider();
+            //byte[] pwd = System.Text.Encoding.Default.GetBytes(password);
 
-            pwd = sha.ComputeHash(pwd);
-            password = System.Text.Encoding.Default.GetString(pwd);
+            //pwd = sha.ComputeHash(pwd);
+            //password = System.Text.Encoding.Default.GetString(pwd);
+            EncryptAndDecrypt crypt = new EncryptAndDecrypt();
+            password = crypt.Encrypt(password);
 
             var users = from u in _db.users
                         where u.account == account && u.password == password
@@ -112,11 +116,13 @@ namespace net.BusinessLayer
         }
         public static bool emailLogin(string email, string password, netHWEntities _db)
         {
-            SHA1 sha = new SHA1CryptoServiceProvider();
-            byte[] pwd = System.Text.Encoding.Default.GetBytes(password);
+            //SHA1 sha = new SHA1CryptoServiceProvider();
+            //byte[] pwd = System.Text.Encoding.Default.GetBytes(password);
 
-            pwd = sha.ComputeHash(pwd);
-            password = System.Text.Encoding.Default.GetString(pwd);
+            //pwd = sha.ComputeHash(pwd);
+            //password = System.Text.Encoding.Default.GetString(pwd);
+            EncryptAndDecrypt crypt = new EncryptAndDecrypt();
+            password = crypt.Encrypt(password);
 
             var users = from u in _db.users
                         where u.email == email && u.password == password
