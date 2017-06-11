@@ -148,7 +148,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessLayer\AccountService.cs" />
-    <Compile Include="BusinessLayer\EmailService.cs" />
     <Compile Include="BusinessLayer\Filter.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\orderController.cs" />

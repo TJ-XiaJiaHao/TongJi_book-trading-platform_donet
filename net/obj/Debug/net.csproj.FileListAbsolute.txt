@@ -229,3 +229,4 @@ C:\Users\Administrator\Desktop\net\net\net\net\bin\zh-Hans\System.Web.WebPages.R
 C:\Users\Administrator\Desktop\net\net\net\net\obj\Debug\net.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\net\net\net\net\obj\Debug\net.dll
 C:\Users\Administrator\Desktop\net\net\net\net\obj\Debug\net.pdb
+C:\Users\Administrator\Desktop\net\net\net\net\bin\EmailService.dll
