@@ -20,4 +20,5 @@
   
 |ID|功能|文件名|命名空间|编写语言|程序集类型|备注|
 |---|---|---|----|---|---|---|
-|1|邮箱验证程序集|EmailService.dll|DLL.EmailService|c#|私有程序集|需要在web.config中配置信息|
+|1|邮箱验证|EmailService.dll|DLL.EmailService|c#|私有程序集|需要在web.config中配置信息|
+|2|验证码生成|RandomCode.dll|DLL.RandomCode|c#|私有程序集|-|
