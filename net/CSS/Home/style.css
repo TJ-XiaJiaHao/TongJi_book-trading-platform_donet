@@ -212,7 +212,9 @@
 	.search-bar.search-bar-open .search-icon, .no-js .search-bar .search-icon {
 		color: #fff;
 		z-index: 11;
+		width:0;
 	}
+
 	.search-bar.search-bar-open .search-bar-submit, .no-js .search-bar .sb-search-submit {
 		z-index: 90;
 	}
