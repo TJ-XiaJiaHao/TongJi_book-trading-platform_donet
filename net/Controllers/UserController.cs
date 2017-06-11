@@ -8,6 +8,7 @@ using net.Models;
 using net.Controllers.ViewModel;
 using System.IO;
 using net.BusinessLayer;
+using DLL.EmailService;
 
 namespace net.Controllers
 {

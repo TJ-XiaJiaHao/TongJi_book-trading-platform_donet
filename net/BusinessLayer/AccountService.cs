@@ -7,6 +7,7 @@ using net.Models;
 using System.Web.SessionState;
 using System.Security.Cryptography;
 using System.IO;
+using DLL.EmailService;
 
 namespace net.BusinessLayer
 {
