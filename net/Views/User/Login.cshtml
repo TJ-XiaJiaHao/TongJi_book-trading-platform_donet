@@ -1,0 +1,65 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Login";
+}
+
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="account-login">
+            <h2>登录或注册账号</h2>
+            <fieldset class="col2-set">
+                <div class="col-1 new-users">
+                    <h4>新用户？</h4>
+                    <div class="content">
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <p>未登录用户可以浏览本网站商品，但无法进行交易。</p>
+                        <div class="buttons-set">
+                            <button class="button create-account" type="button" onclick="window.location='Regist';"><span>新建账户</span></button>
+                        </div>
+                    </div>
+                </div>
+                <form method="post" action="~/User/LoginByEmail">
+                    <div class="col-2 registered-users">
+                        <h4>已注册用户</h4>
+                        <div class="content">
+                            <p>如果你已注册，请登录。</p>
+                            <ul class="form-list">
+                                <li>
+                                    <label><span class="required">@ViewData["error"]</span></label>
+                                </li>
+                                <li>
+                                    <label>邮箱地址*</label>
+                                    <br>
+                                    <input type="text" title="Email Address" class="input-text required-entry" value="" name="login[username]">
+                                </li>
+                                <li>
+                                    <label for="pass">密码*</label>
+                                    <br>
+                                    <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
+                                </li>
+                            </ul>
+                            <p>* 为必填项</p>
+                            <div class="buttons-set">
+                                <button id="send2" name="send" type="submit" class="button login"><span>登 录</span></button>
+                                <a class="forgot-word">忘记密码？</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</section>
+<!-- 登录end -->

@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "show";
+}
+<!-- main-container -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,700,800,400,600' rel='stylesheet' type='text/css'>
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <div class="my-account">
+                <div class="header-section">
+                    <div class="continer">
+                        <img src="~/@ViewData["picture"]" style="width:160px;height:160px;
+                                                                  background: #FFFFFF;
+                                                                  margin: auto;
+                                                                  -moz-border-radius: 60px;
+                                                                  border-radius: 100px;
+                                                                  padding: 6px;
+                                                                  box-shadow: 0px 0px 20px #888;" />
+                        <h1>@ViewData["nickName"]<span>!</span></h1>
+                        <!--<p>...给您独一无二的购书体验</p>-->
+                        <div class="page-title new_page_title">
+                            <article class="markup">
+                                <!--<h2 class="section-title">我的帐户</h2>-->
+                                <p>
+                                    欢迎来到我的主页 ，祝您购物愉快！
+                                </p>
+                            </article>
+                        </div>
+                        <div class="dashboard">
+                            <div class="col2-set">
+                                <div class="col-1">
+                                    <h3>我的基本信息</h3>
+                                </div>
+                            </div>
+                            <table id="multiship-addresses-table" class="data-table">
+
+                                <thead>
+                                    <tr class="first last">
+                                        <th>姓名</th>
+                                        <th class="a-left">邮箱</th>
+                                        <th>联系方式</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="first odd">
+                                        <td><h4 class="customer-name">@ViewData["nickName"]</h4></td>
+                                        <td><h4 class="email-name">@ViewData["email"]</h4></td>
+                                        <td><h4 class="telephone">@ViewData["phone"]</h4></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

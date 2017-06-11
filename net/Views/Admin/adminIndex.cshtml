@@ -1,0 +1,303 @@
+﻿
+@{
+    ViewBag.Title = "adminIndex";
+}
+
+
+<script type="text/javascript" src="~/js/ACCOUNT/jquery.min.js"></script>
+<div class="page">
+    <!-- 头部 -->
+    <!-- wyx 用户管理界面 -->
+    <div class="container" id="manage" style="padding:15px">
+        <div id="getWidth">
+            <h4 style="margin-left:20px;margin-buttom:5px;width:300px;display:inline">用户列表</h4>
+            <form action="" style="display:inline;float:right;margin-buttom:5px">搜索：<input type="text" id="wyx_search_txt" onkeyup="searchUser(this.value)" /></form>
+        </div>
+        <div id="wyx_top_guide">
+            <div id="wyx_guide_img">用户头像</div>
+            <div id="wyx_guide_id" style="background:#ccf3f4">用户ID</div>
+            <div id="wyx_guide_name">用户名</div>
+            <div id="wyx_guide_operate" style="background:#ccf3f4">管理员操作</div>
+        </div>
+        <div id="wyx_userList"></div>
+        <div id="wyx_pages"></div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+    var imgList = new Array();
+    var idList = new Array();
+    var nameList = new Array();
+    var displayNum = new Array();
+
+    var currentPage = 1;
+    var pageCnt = 1;
+
+    //初始化数据，现在是测试数据
+    $.ajax({
+        url: "getUserList",
+        dataType: "json",
+        cache: false,
+        data: "str=test str",
+        type: "POST",
+        success: function (data) {
+            for (var i = 0, length = data.Data.length; i < length; i++) {
+                imgList[i] = data.Data[i].pic;
+                idList[i] = data.Data[i].id;
+                nameList[i] = data.Data[i].name;
+                displayNum[i] = i;
+            }
+            initpage();
+        }
+
+    });
+
+    //$(document).ready(function(){
+    // for(var i=0;i<107;i++){
+    //   imgList[i]="test"+(i%3+1)+".png";
+    //   idList[i]="";
+    //   for(var j=0;j<9;j++){
+    //     idList[i]+=parseInt((Math.random()*11)%10);
+    //   }
+    //   nameList[i]="fehuifehfhfishfiusheifs";
+    //   displayNum[i]=i;
+    // }
+
+    // initpage();
+    //})
+    //end初始化数据
+
+    function initpage() {
+
+        createPageDiv();
+        init();
+        init_format();
+
+        $(".wyx_page_div").click(function () {
+            changePage(parseInt($(this).attr("id")));
+        });
+
+        $(".wyx_del_user").click(function () {
+            var id = $(this).parent().attr("id");
+            var temp = id[0];
+            for (var i = 1; i < id.length; i++) {
+                if (id[i] == '_')
+                    break;
+                temp += id[i];
+            }
+            alert(temp);
+            delUser(temp);
+        });
+
+        $(".wyx_rst_pwd").click(function () {
+            var id = $(this).parent().attr("id");
+            var temp = id[0];
+            for (var i = 1; i < id.length; i++) {
+                if (id[i] == '_')
+                    break;
+                temp += id[i];
+            }
+            alert(temp);
+            rstPwd(temp);
+        });
+
+    }
+    $(document).ready(function () {
+
+    });
+
+    function createUser(img, id, name) {
+        var temp = $("<div></div>");
+        temp.attr("id", id + "_user");
+
+        var image = $("<img>");
+        image.attr("src", img);
+        image.attr("class", "wyx_user_img");
+
+        var u_id = $("<div></div>");
+        u_id.html(id);
+
+        u_id.attr("class", "wyx_user_id");
+
+        var u_name = $("<div></div>");
+        u_name.html(name);
+        u_name.attr("class", "wyx_user_name");
+
+        var dele_button = $("<div></div>");
+        dele_button.html("<a>删除用户</a>");
+        dele_button.attr("class", "wyx_del_user");
+
+        var rst_button = $("<div></div>");
+        rst_button.html("<a>重设用户密码</a>");
+        rst_button.attr("class", "wyx_rst_pwd");
+
+        $(temp).append(image);
+        $(temp).append(u_id);
+        $(temp).append(u_name);
+        $(temp).append(dele_button);
+        $(temp).append(rst_button);
+
+        return temp;
+    }
+
+    function createPageDiv() {
+        $("#wyx_pages").html("");
+        currentPage = 1;
+        pageCnt = parseInt(displayNum.length / 10 + 1);
+        if (displayNum.length % 10 == 0) {
+            pageCnt -= 1;
+        }
+        for (var i = 0; i < pageCnt; i++) {
+            var temp = $("<div></div>");
+            temp.attr("id", (i + 1) + "_page_wyx");
+            temp.attr("class", "wyx_page_div");
+            temp.html("<p>" + (i + 1) + "</p>");
+            $("#wyx_pages").append(temp);
+        }
+
+    }
+
+    function init_format() {
+        var w = parseInt($("#getWidth").css("width"));
+        w /= 5;
+        $(".wyx_user_img").css("marginLeft", (w - 36) / 2 + "px");
+        $(".wyx_user_img").css("marginRight", (w - 36) / 2 + "px");
+        $(".wyx_user_name,.wyx_user_id,#wyx_guide_name,#wyx_guide_id,#wyx_guide_img").css("width", w + "px");
+        $(".wyx_del_user,.wyx_rst_pwd").css("width", w - 1 + "px");
+        $("#wyx_guide_operate").css("width", w * 2 + "px");
+
+        w = parseInt($("#getWidth").css("width"));
+        $("#1_page_wyx").css("marginLeft", ((w - 26 * pageCnt) / 2 + 3) + "px");
+    }
+
+    function init() {
+        for (var i = 0; i < pageCnt; i++) {
+            $("#" + (i + 1) + "_page_wyx").css("background", "transparent");
+            if (i + 1 == currentPage)
+                $("#" + (i + 1) + "_page_wyx").css("background", "#44d6e4");
+        }
+
+        $("#wyx_userList").html("");
+        for (var i = 0; i < 10; i++) {
+            var j = i + (currentPage - 1) * 10;
+            if (j == displayNum.length)
+                break;
+            var temp = createUser(imgList[displayNum[j]], idList[displayNum[j]], nameList[displayNum[j]]);
+            $("#wyx_userList").append(temp);
+        }
+
+    }
+
+    function changePage(page) {
+        currentPage = page;
+        init();
+        init_format();
+    }
+
+    function searchUser(keyWord) {
+        displayNum = new Array();
+        for (var i = 0; i < imgList.length; i++) {
+            if (idList[i].match(keyWord) == keyWord || nameList[i].match(keyWord) == keyWord)
+                displayNum.push(i);
+        }
+        createPageDiv();
+        init();
+        init_format();
+        initpage();
+    }
+
+    //--------------学霸是杀鸡----------------->
+    function delUser(id) {
+        window.location = "~/user/delete/" + id;
+    }
+
+    function rstPwd(id) {
+
+    }
+    //-------------end学霸是杀鸡--------------->
+    </script>
+
+
+    <style type="text/css">
+        .wyx_user_img {
+            text-align: center;
+            border-radius: 50%;
+            height: 36px;
+            width: 36px;
+            position: relative;
+            float: left;
+            margin: 10px 0px 10px 0px;
+        }
+
+        .wyx_user_id {
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            float: left;
+            padding: 20px 0px 20px 0px;
+            background: #ccf3f4;
+        }
+
+        .wyx_user_name {
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            float: left;
+            padding: 20px 0px 20px 0px;
+        }
+
+        .wyx_del_user {
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            float: left;
+            margin-right: 1px;
+            padding: 20px 0px 20px 0px;
+            background: #ccf3f4;
+        }
+
+        .wyx_rst_pwd {
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            float: left;
+            margin-left: 1px;
+            padding: 20px 0px 20px 0px;
+            background: #ccf3f4;
+        }
+
+            .wyx_rst_pwd:hover, .wyx_del_user:hover {
+                opacity: 0.5;
+            }
+
+        #wyx_top_guide div {
+            positiosearchUsern: relative;
+            float: left;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 2px;
+            margin-top: 3px;
+        }
+
+        .wyx_page_div {
+            border: 1px solid #777777;
+            border-radius: 4px;
+            position: relative;
+            float: left;
+            width: 20px;
+            height: 30px;
+            text-align: center;
+            padding-top: 6.5px;
+            margin: 3px;
+            margin-top: 20px;
+        }
+
+            .wyx_page_div:hover {
+                background: #336699;
+            }
+    </style>
+
+
+

@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Regist";
+}
+<!-- 注册 -->
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="account-login">
+            <h2>注册账号</h2>
+            <fieldset class="col2-set">
+                <form method="post" action="~/User/onRegist">
+                    <div class="col-1 new-users">
+                        <h4>新用户注册</h4>
+                        <div class="content">
+                            <ul class="form-list">
+                                <li>
+                                    <label><span class="required">@ViewData["error"]</span></label>
+                                </li>
+                                <li>
+                                    <label>昵称 <span class="required">*</span></label>
+                                    <br>
+                                    <input type="text" title="Name" class="input-text required-entry" value="" name="nickName">
+                                    <br />
+                                    <label class="required" style="color:red;">@Html.ValidationMessage("nickName")</label>
+                                </li>
+                                @*<li>
+                                        <label>学号 <span class="required">*</span></label>
+                                        <br>
+                                        <input type="text" title="Student ID" class="input-text required-entry" value="" name="login[username]">
+                                    </li>*@
+                                <li>
+                                    <label>电话 <span class="required">*</span></label>
+                                    <br>
+                                    <input type="text" title="Phone Number" class="input-text required-entry" value="" name="phone">
+                                    <br />
+                                    <label class="required" style="color:red;">@Html.ValidationMessage("phone")</label>
+                                </li>
+                                <li>
+                                    <label>邮箱地址 <span class="required">*</span></label>
+                                    <br>
+                                    <input type="text" title="Email Address" class="input-text required-entry" value="" name="email">
+                                    <br />
+                                    <label class="required" style="color:red;">@Html.ValidationMessage("email")</label>
+                                </li>
+                                <li>
+                                    <label for="pass">密码 <span class="required">*</span></label>
+                                    <br>
+                                    <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="password">
+                                    <br />
+                                    <label class="required" style="color:red;">@Html.ValidationMessage("password")</label>
+                                </li>
+                            </ul>
+                            <p class="required">* 为必填项</p>
+                            <div class="buttons-set">
+                                <button class="button create-account" type="submit"><span>新建账户</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-2 registered-users">
+                    <h4>已注册用户</h4>
+                    <div class="content">
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <div class="buttons-set">
+                            <button id="send2" name="send" type="submit" class="button login" onclick="window.location='login'"><span>登 录</span></button>
+
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</section>
+<!-- 注册end -->

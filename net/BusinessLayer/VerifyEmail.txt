@@ -1,0 +1,6 @@
+﻿dear @USERNAME@:
+	Hello!
+	welcome to our trade platform , your verify code is @VERIFYCODE@.
+	the code will be disable in 20 minutes , so please varify as soon.
+
+By:tradePlatForm

@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewBag.Title = "adminBook";
+}
+
+<div class="container" id="wyx_main_window" style="padding:15px">
+    <div id="getWidth">
+        <h4 style="margin-left:20px">搜索结果</h4>
+        <div id="wyx_search_result"></div>
+        <div id="wyx_pages"></div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+var imgList=new Array();
+var nameList=new Array();
+var idList=new Array();
+var authorList=new Array();
+var priceList=new Array();
+var discountList=new Array();
+
+var pageCnt=1;
+var currentPage=1;
+
+function createBook(img,name,author,price,discount,id){
+  var temp=$("<div></div>");
+  temp.attr("id",id+"_user");
+  temp.attr("class","bookDetail_container")
+
+  var _img=$("<img>");
+  _img.attr("src",img);
+  _img.attr("class","bookDetail_img");
+
+  var _name=$("<div></div>");
+  _name.attr("class","bookDetail_name");
+  _name.html("<p>"+name+"</p>");
+
+  var _author=$("<div></div>");
+  _author.attr("class","bookDetail_author");
+  _author.html("<br/><p>出版社："+author+"</p>");
+
+  var _price=$("<div></div>");
+  _price.attr("class","bookDetail_price");
+  _price.html("<p>原价：¥"+price+"</p>");
+
+  var _discount=$("<div></div>");
+  _discount.attr("class","bookDetail_discount");
+  _discount.html("<p>折后价：¥"+discount+"</p>");
+
+  var info=$("<div></div>");
+  info.attr("class","bookDetail_info");
+
+  info.append(_name);
+  info.append("<br/>")
+  info.append(_author);
+  info.append(_price);
+  info.append(_discount);
+
+  temp.append(_img);
+  temp.append(info);
+
+ return temp;
+}
+
+function changePage(pageNum){
+  $.ajax({
+      url: "/Product/List",
+      dataType: "json",
+      cache: false,
+      data: "page="+pageNum,
+      type: "POST",
+      success: function (data) {
+          for (var i = 0, length = data.Data.length; i < length; i++) {
+              imgList[i] = data.Data[i].PICTURE_URL;
+              idList[i] = data.Data[i].BOOK_ID;
+              nameList[i] = data.Data[i].BOOK_NAME;
+              priceList[i] = data.Data[i].PRICE;
+              discountList
+
+          }
+          pageCnt=data.pageCnt;
+          currentPage=data.curPage;
+          init();
+          createPageDiv();
+          initFormat();
+      }
+
+  });
+}
+
+function createPageDiv(){
+  $("wyx_pages").html("");
+ for(var i=0;i<pageCnt;i++){
+    var temp=$("<div></div>");
+    temp.attr("id",(i+1)+"_page_wyx");
+    temp.attr("class","wyx_page_div");
+    temp.html("<p>"+(i+1)+"</p>");
+    $("#wyx_pages").append(temp);
+  }
+}
+
+
+
+$(document).ready(function(){
+  for(var i=0;i<10;i++)
+  {
+    imgList[i]="/images/book_"+(i%3+1)+".jpeg";
+    nameList[i]="测试书籍";
+    authorList[i]="测试出版社";
+   priceList[i]=234;
+   discountList[i]=123;
+    idList[i]="fehuifeh";
+}
+init();
+  createPageDiv();
+  initFormat();
+
+})
+
+function init(){
+  for(var i=0;i<imgList.length;i++){
+    $("#wyx_search_result").append(createBook(imgList[i],nameList[i],authorList[i],priceList[i],discountList[i],idList[i]));
+  }
+}
+
+function initFormat(){
+  var w=parseInt($("#getWidth").css("width"));
+  var marg;
+
+  if(w<700){
+    marg=(w-400)/4;
+  }else if(w<1000){
+    marg=(w-600)/6;
+  }else{
+    marg=(w-800)/8;
+  }
+
+  $(".bookDetail_container").css("marginLeft",marg+"px");
+  $(".bookDetail_container").css("marginRight",marg+"px");
+
+   w=parseInt($("#getWidth").css("width"));
+  $("#1_page_wyx").css("marginLeft",((w-26*pageCnt)/2+3)+"px");
+
+  $(".wyx_page_div").click(function(){
+    changePage(parseInt(this.attr("id")));
+  });
+}
+</script>
+
+
+<style type="text/css">
+    .bookDetail_container {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        height: 300px;
+        width: 200px;
+        position: relative;
+        float: left;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .bookDetail_img {
+        height: 300px;
+        width: 200px;
+        position: absolute;
+    }
+
+    .bookDetail_info {
+        color: #ffffff;
+        padding: 60px 0 0 0;
+        height: 300px;
+        width: 200px;
+        position: absolute;
+        background: rgba(10,10,10,.6);
+        opacity: 0;
+        transition: all .8s ease-in-out;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 20px;
+    }
+
+    .bookDetail_name {
+        position: relative;
+        margin-bottom: 60px;
+        text-transform: uppercase;
+        font-size: 24px;
+        display: inline;
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+        text-shadow: 0 0 1px white,0 1px 2px rgba(0,0,0,.3);
+    }
+
+    .bookDetail_author {
+        border-top: 1px solid rgba(255,255,255,.7);
+        opacity: 0.6;
+    }
+
+    .bookDetail_price {
+        opacity: 0.5;
+        text-decoration: line-through;
+        font-style: italic;
+    }
+
+    .bookDetail_discount {
+        opacity: 0.6;
+    }
+
+    .bookDetail_container:hover .bookDetail_info {
+        opacity: 1;
+    }
+
+    .wyx_page_div {
+        border: 1px solid #777777;
+        border-radius: 4px;
+        position: relative;
+        float: left;
+        width: 20px;
+        height: 30px;
+        text-align: center;
+        padding-top: 6.5px;
+        margin: 3px;
+        margin-top: 20px;
+    }
+
+        .wyx_page_div:hover {
+            background: #336699;
+        }
+</style>
+<!-- end  wyx 用户管理界面 -->
+
+

@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .circle_bottom {
+        overflow: hidden;
+    }
+
+    .circle_item {
+        margin: 60px;
+        position: relative;
+        float: left;
+        transition: all .35s ease-in-out;
+    }
+
+        .circle_item * {
+            box-sizing: border-box;
+        }
+
+        .circle_item .spinner {
+            width: 260px;
+            height: 260px;
+            border: 10px solid #62cad9;
+            border-right-color: #cccccc;
+            border-bottom-color: #cccccc;
+            border-radius: 50%;
+            transition: all .8s ease-in-out;
+        }
+
+        .circle_item img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+        }
+
+    .info {
+        height: 240px;
+        width: 240px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(10,10,10,.6);
+        opacity: 0;
+        transition: all .8s ease-in-out;
+        text-align: center;
+        border-radius: 50%;
+        backface-visibility: hidden;
+    }
+
+        .info h1 {
+            color: #ffffff;
+            text-transform: uppercase;
+            position: relative;
+            letter-spacing: 2px;
+            font-size: 24px;
+            padding: 60px 0 0;
+            min-height: 120px;
+            text-shadow: 0 0 1px white,0 1px 2px rgba(0,0,0,.3);
+        }
+
+        .info p {
+            color: #bbbbbb;
+            padding: 15px 0px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,.5);
+        }
+
+    .circle_item a:hover .spinner {
+        transform: rotate(180deg);
+    }
+
+    .circle_item a:hover .info {
+        opacity: 1;
+    }
+</style>
+
+
+
+<div id="choose" class="container">
+    <div class="circle_bottom">
+        <div class="circle_item">
+            <a href="~/admin/adminIndex">
+                <div class="spinner"></div>
+                <img src="~/images/user.jpg">
+                <div class="info">
+                    <div class="info-back">
+                        <h1>管理用户<br /></h1>
+                        <p>增加、删除、编辑用户信息</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="circle_item">
+            <a href="~/admin/adminBook">
+                <div class="spinner"></div>
+                <img src="~/images/books.jpg">
+                <div class="info">
+                    <div class="info-back">
+                        <h1>管理书籍</h1>
+                        <p>增加、删除、修改书本信息</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="circle_item">
+            <a href="~/admin/adminOrder">
+                <div class="spinner"></div>
+                <img src="~/images/order.jpg">
+                <div class="info">
+                    <div class="info-back">
+                        <h1>管理订单</h1>
+                        <p>增加、删除、修改订单状态</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+ var w=$("#choose").css("width");
+  w=parseInt(w);
+  var distance;
+  if(w>1100){
+    distance=(w-780-50)/6;
+  }
+  else{
+    distance=(w-260)/2;
+  }
+  distance=distance+"px";
+  $(".circle_item").css("marginLeft",distance);
+  $(".circle_item").css("marginRight",distance);
+</script>
+<script>
+			new UISearch( document.getElementById( 'form-search' ) );
+</script>
+

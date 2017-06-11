@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Verify";
+}
+<!-- 注册 -->
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="account-login">
+            <h2>邮箱验证</h2>
+            <fieldset class="col2-set">
+                <form method="post" action="~/User/Verify">
+                    <div class="col-1 new-users">
+                        <h4>用户邮箱验证</h4>
+                        <div class="content">
+                            <ul class="form-list">
+                                <li>
+                                    <label>验证码 <span class="required">*</span></label>
+                                    <br>
+                                    <div>
+                                        <input type="text" title="Name" class="input-text required-entry" value="" name="code">
+                                        <button class="button login" type="button" onclick="window.location='reSend'"><span>重新发送</span></button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="required">* 为必填项</p>
+                            <div class="buttons-set">
+                                <button class="button create-account" type="submit"><span>邮箱验证</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-2 registered-users">
+                    <h4>已注册用户</h4>
+                    <div class="content">
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <p>如果你已注册，请登录。</p>
+                        <div class="buttons-set">
+                            <button id="send2" name="send" type="submit" class="button login" onclick="window.location='login.html'"><span>登 录</span></button>
+
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</section>

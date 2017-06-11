@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "dashboard";
+}
+<!-- main-container -->
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <section class="col-main col-sm-9 wow bounceInUp animated">
+                <div class="my-account">
+                    <div class="header-section">
+                        <div class="continer">
+                            <img src="@ViewData["picture"]" style="width:160px;height:160px;
+                                                                  background: #FFFFFF;
+                                                                  margin: auto;
+                                                                  -moz-border-radius: 60px;
+                                                                  border-radius: 100px;
+                                                                  padding: 6px;
+                                                                  box-shadow: 0px 0px 20px #888;" />
+                            <h1>hello @ViewData["nickName"]<span>!</span></h1>
+                            <!--<p>...给您独一无二的购书体验</p>-->
+                            <div class="page-title new_page_title">
+                                <article class="markup">
+                                    <!--<h2 class="section-title">我的帐户</h2>-->
+                                    <p>
+                                        欢迎来到<a href="#">Lorem ipsum</a> 您能够随时修改自己的用户信息并更新您的收货地址，祝您购物愉快！
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="dashboard">
+                                <div class="col2-set">
+                                    <div class="col-1">
+                                        <h3>用户基本信息</h3>
+                                    </div>
+                                </div>
+                                <table id="multiship-addresses-table" class="data-table">
+
+                                    <thead>
+                                        <tr class="first last">
+                                            <th>用户名</th>
+                                            <th class="a-left">绑定邮箱</th>
+                                            <th>修改</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="first odd">
+                                            <td><h4 class="customer-name"><a href="#">@ViewData["nickName"]</a></h4></td>
+                                            <td><h4 class="email-name"><a href="#">@ViewData["email"]</a></h4></td>
+                                            <td class="a-center last"><a href="~/User/change_info" title="Edit item" class="btn-edit btn-edit2"><span>Edit item</span></a></td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                <div class="col2-set">
+                                    <div class="col-1">
+                                        <h3>收货地址</h3>
+                                    </div>
+                                </div>
+                                <table id="multiship-addresses-table" class="data-table">
+
+                                    <thead>
+                                        <tr class="first last">
+                                            <th>收货人</th>
+                                            <th class="a-left">收货地址</th>
+                                            <th>联系电话</th>
+                                            <th>修改</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="first odd">
+                                            <td><h4 class="customer-name"><a href="#">@ViewData["receName"]</a></h4></td>
+                                            <td><h4 class="shipping-address"><a href="#">@ViewData["receAdd"]</a></h4></td>
+                                            <td><h4 class="telephone-number"><a href="#">@ViewData["recePhone"]</a></h4></td>
+                                            <td class="a-center last"><a href="~/user/receiving" title="Edit item" class="btn-edit btn-edit2"><span>Edit item</span></a></td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <aside class="col-right sidebar col-sm-3 wow bounceInUp animated">
+                <div class="block block-account">
+                    <div class="block-title">我的帐户</div>
+                    <div class="block-content">
+                        <ul>
+                            <li class="current"><a href="~/User/dashboard">我的信息</a></li>
+                            <li><a href="/order/myorder">我的订单</a></li>
+                            <li><a href="/order/sold_goods">已发布的商品</a></li>
+                            <li><a href="/Product/AddNewBook">发布商品</a></li>
+                            <li><a href="~/User/aboutUs">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<!--End main-container --> 

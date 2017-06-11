@@ -1,0 +1,1161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7AC420B-7C93-4B3E-89A7-06A0FE1537CE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>net</RootNamespace>
+    <AssemblyName>net</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessLayer\AccountService.cs" />
+    <Compile Include="BusinessLayer\EmailService.cs" />
+    <Compile Include="BusinessLayer\Filter.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\orderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\shoppingCartsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ViewData\OrderItem.cs" />
+    <Compile Include="Controllers\ViewData\OrderJson.cs" />
+    <Compile Include="Controllers\ViewData\ReceivingForm.cs" />
+    <Compile Include="Controllers\ViewData\RegisterForm.cs" />
+    <Compile Include="Controllers\ViewData\UserForm.cs" />
+    <Compile Include="Controllers\ViewData\userInfo.cs" />
+    <Compile Include="DAL\AllOrders.cs" />
+    <Compile Include="DAL\BookDetails.cs" />
+    <Compile Include="DAL\BookInformation.cs" />
+    <Compile Include="DAL\Comment.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="images\BookPicture\App_Start\RouteConfig.cs" />
+    <Compile Include="Models\book.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bookComment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bookDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bookOrder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bookType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\book_cart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\book_order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\receiving.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shoppingCart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SERVE\Product.cs" />
+    <Compile Include="SERVE\ShoppingCartBusiness.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BusinessLayer\CommentEmail.txt" />
+    <Content Include="BusinessLayer\VerifyEmail.txt" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\AddNewBook\015818SCT.jpg" />
+    <Content Include="images\AddNewBook\015822m8H.jpg" />
+    <Content Include="images\AddNewBook\015822OUw.jpg" />
+    <Content Include="images\AddNewBook\20110905152339673.jpg" />
+    <Content Include="images\AddNewBook\20110905152345871.jpg" />
+    <Content Include="images\AddNewBook\20110905152347893.jpg" />
+    <Content Include="images\AddNewBook\20110905152348918.jpg" />
+    <Content Include="images\AddNewBook\20110905152350112.jpg" />
+    <Content Include="images\AddNewBook\20110905152350684.jpg" />
+    <Content Include="images\AddNewBook\91JPJfo-JaL.jpg" />
+    <Content Include="images\AddNewBook\91Npeew9NqL.jpg" />
+    <Content Include="images\AddNewBook\avatar60x60.jpg" />
+    <Content Include="images\AddNewBook\b-logo1.png" />
+    <Content Include="images\AddNewBook\b-logo2.png" />
+    <Content Include="images\AddNewBook\b-logo3.png" />
+    <Content Include="images\AddNewBook\b-logo4.png" />
+    <Content Include="images\AddNewBook\b-logo5.png" />
+    <Content Include="images\AddNewBook\b-logo6.png" />
+    <Content Include="images\AddNewBook\banner-img.jpg" />
+    <Content Include="images\AddNewBook\bkg_rating.png" />
+    <Content Include="images\AddNewBook\block-banner.png" />
+    <Content Include="images\AddNewBook\blog-img1.jpg" />
+    <Content Include="images\AddNewBook\btn_remove.png" />
+    <Content Include="images\AddNewBook\bullets.png" />
+    <Content Include="images\AddNewBook\bullet_1.png" />
+    <Content Include="images\AddNewBook\close-icon.png" />
+    <Content Include="images\AddNewBook\close_icon.png" />
+    <Content Include="images\AddNewBook\electronics-img.png" />
+    <Content Include="images\AddNewBook\english.png" />
+    <Content Include="images\AddNewBook\f-box-close-icon.png" />
+    <Content Include="images\AddNewBook\footer-logo.png" />
+    <Content Include="images\AddNewBook\francais.png" />
+    <Content Include="images\AddNewBook\furniture-img.png" />
+    <Content Include="images\AddNewBook\german.png" />
+    <Content Include="images\AddNewBook\head portrait.png" />
+    <Content Include="images\AddNewBook\icon_arrow_down.png" />
+    <Content Include="images\AddNewBook\icon_arrow_prev.png" />
+    <Content Include="images\AddNewBook\icon_arrow_prev_over.png" />
+    <Content Include="images\AddNewBook\icon_arrow_up.png" />
+    <Content Include="images\AddNewBook\icon_breadcrumbs.png" />
+    <Content Include="images\AddNewBook\icon_grid.png" />
+    <Content Include="images\AddNewBook\icon_grid_act.gif" />
+    <Content Include="images\AddNewBook\icon_grid_act.png" />
+    <Content Include="images\AddNewBook\icon_grid_over.png" />
+    <Content Include="images\AddNewBook\icon_list.png" />
+    <Content Include="images\AddNewBook\icon_list_act.gif" />
+    <Content Include="images\AddNewBook\icon_list_act.png" />
+    <Content Include="images\AddNewBook\icon_list_over.png" />
+    <Content Include="images\AddNewBook\image-delivery.jpg" />
+    <Content Include="images\AddNewBook\IMG_2531.jpg" />
+    <Content Include="images\AddNewBook\large-icon-sitemap.png" />
+    <Content Include="images\AddNewBook\leftNav.png" />
+    <Content Include="images\AddNewBook\logo.png" />
+    <Content Include="images\AddNewBook\men-img.png" />
+    <Content Include="images\AddNewBook\MENDO_books_starring_07.jpg" />
+    <Content Include="images\AddNewBook\MENDO_book_Canals_C_TOALA_COVER_3DM.jpg" />
+    <Content Include="images\AddNewBook\mendo_book_high_tide_coM.jpg" />
+    <Content Include="images\AddNewBook\menu_furniture.png" />
+    <Content Include="images\AddNewBook\mgkloading1.gif" />
+    <Content Include="images\AddNewBook\minus.png" />
+    <Content Include="images\AddNewBook\newsletter-bg.png" />
+    <Content Include="images\AddNewBook\offer-banner1.jpg" />
+    <Content Include="images\AddNewBook\offer-banner1.png" />
+    <Content Include="images\AddNewBook\offerBanner.jpg" />
+    <Content Include="images\AddNewBook\payment-1.png" />
+    <Content Include="images\AddNewBook\payment-2.png" />
+    <Content Include="images\AddNewBook\payment-3.png" />
+    <Content Include="images\AddNewBook\payment-4.png" />
+    <Content Include="images\AddNewBook\plus-img.png" />
+    <Content Include="images\AddNewBook\plus.png" />
+    <Content Include="images\AddNewBook\quick-view.png" />
+    <Content Include="images\AddNewBook\search-icon.png" />
+    <Content Include="images\AddNewBook\search-icon1.png" />
+    <Content Include="images\AddNewBook\signal.png" />
+    <Content Include="images\AddNewBook\slideshow-arrows.png" />
+    <Content Include="images\AddNewBook\spanish.png" />
+    <Content Include="images\AddNewBook\tab-pager-ring-lgray.png" />
+    <Content Include="images\AddNewBook\to-top-arrow.png" />
+    <Content Include="images\AddNewBook\tool_arrow_down.png" />
+    <Content Include="images\AddNewBook\tool_arrow_down_o.png" />
+    <Content Include="images\AddNewBook\tool_arrow_up.png" />
+    <Content Include="images\AddNewBook\top-arrow.png" />
+    <Content Include="images\AddNewBook\women-img.png" />
+    <Content Include="images\AddNewBook\women_banner.png" />
+    <Content Include="images\AddNewBook\women_jwellery.png" />
+    <Content Include="images\BookPicture\1.jpeg" />
+    <Content Include="images\BookPicture\10.jpeg" />
+    <Content Include="images\BookPicture\11.jpeg" />
+    <Content Include="images\BookPicture\2.jpeg" />
+    <Content Include="images\BookPicture\3.jpeg" />
+    <Content Include="images\BookPicture\4.jpeg" />
+    <Content Include="images\BookPicture\5.jpeg" />
+    <Content Include="images\BookPicture\6.jpeg" />
+    <Content Include="images\BookPicture\7.jpeg" />
+    <Content Include="images\BookPicture\8.jpeg" />
+    <Content Include="images\BookPicture\9.jpeg" />
+    <Content Include="images\BookPicture\product1.jpg" />
+    <Content Include="images\books.jpg" />
+    <Content Include="images\book_1.jpeg" />
+    <Content Include="images\book_2.jpeg" />
+    <Content Include="images\book_3.jpeg" />
+    <Content Include="book_image\1.jpg" />
+    <Content Include="book_image\10.jpg" />
+    <Content Include="book_image\100.jpg" />
+    <Content Include="book_image\101.jpg" />
+    <Content Include="book_image\102.jpg" />
+    <Content Include="book_image\103.jpg" />
+    <Content Include="book_image\104.jpg" />
+    <Content Include="book_image\105.jpg" />
+    <Content Include="book_image\106.jpg" />
+    <Content Include="book_image\107.jpg" />
+    <Content Include="book_image\108.jpg" />
+    <Content Include="book_image\109.jpg" />
+    <Content Include="book_image\11.jpg" />
+    <Content Include="book_image\110.jpg" />
+    <Content Include="book_image\111.jpg" />
+    <Content Include="book_image\112.jpg" />
+    <Content Include="book_image\113.jpg" />
+    <Content Include="book_image\114.jpg" />
+    <Content Include="book_image\115.jpg" />
+    <Content Include="book_image\116.jpg" />
+    <Content Include="book_image\117.jpg" />
+    <Content Include="book_image\118.jpg" />
+    <Content Include="book_image\119.jpg" />
+    <Content Include="book_image\12.jpg" />
+    <Content Include="book_image\120.jpg" />
+    <Content Include="book_image\121.jpg" />
+    <Content Include="book_image\122.jpg" />
+    <Content Include="book_image\123.jpg" />
+    <Content Include="book_image\124.jpg" />
+    <Content Include="book_image\125.jpg" />
+    <Content Include="book_image\126.jpg" />
+    <Content Include="book_image\127.jpg" />
+    <Content Include="book_image\128.jpg" />
+    <Content Include="book_image\129.jpg" />
+    <Content Include="book_image\13.jpg" />
+    <Content Include="book_image\130.jpg" />
+    <Content Include="book_image\131.jpg" />
+    <Content Include="book_image\132.jpg" />
+    <Content Include="book_image\133.jpg" />
+    <Content Include="book_image\134.jpg" />
+    <Content Include="book_image\135.jpg" />
+    <Content Include="book_image\136.jpg" />
+    <Content Include="book_image\137.jpg" />
+    <Content Include="book_image\138.jpg" />
+    <Content Include="book_image\139.jpg" />
+    <Content Include="book_image\14.jpg" />
+    <Content Include="book_image\140.jpg" />
+    <Content Include="book_image\141.jpg" />
+    <Content Include="book_image\142.jpg" />
+    <Content Include="book_image\143.jpg" />
+    <Content Include="book_image\144.jpg" />
+    <Content Include="book_image\145.jpg" />
+    <Content Include="book_image\146.jpg" />
+    <Content Include="book_image\147.jpg" />
+    <Content Include="book_image\148.jpg" />
+    <Content Include="book_image\149.jpg" />
+    <Content Include="book_image\15.jpg" />
+    <Content Include="book_image\150.jpg" />
+    <Content Include="book_image\151.jpg" />
+    <Content Include="book_image\152.jpg" />
+    <Content Include="book_image\153.jpg" />
+    <Content Include="book_image\154.jpg" />
+    <Content Include="book_image\155.jpg" />
+    <Content Include="book_image\156.jpg" />
+    <Content Include="book_image\157.jpg" />
+    <Content Include="book_image\158.jpg" />
+    <Content Include="book_image\159.jpg" />
+    <Content Include="book_image\16.jpg" />
+    <Content Include="book_image\160.jpg" />
+    <Content Include="book_image\161.jpg" />
+    <Content Include="book_image\162.jpg" />
+    <Content Include="book_image\163.jpg" />
+    <Content Include="book_image\164.jpg" />
+    <Content Include="book_image\165.jpg" />
+    <Content Include="book_image\166.jpg" />
+    <Content Include="book_image\167.jpg" />
+    <Content Include="book_image\168.jpg" />
+    <Content Include="book_image\169.jpg" />
+    <Content Include="book_image\17.jpg" />
+    <Content Include="book_image\170.jpg" />
+    <Content Include="book_image\171.jpg" />
+    <Content Include="book_image\172.jpg" />
+    <Content Include="book_image\173.jpg" />
+    <Content Include="book_image\174.jpg" />
+    <Content Include="book_image\175.jpg" />
+    <Content Include="book_image\176.jpg" />
+    <Content Include="book_image\177.jpg" />
+    <Content Include="book_image\178.jpg" />
+    <Content Include="book_image\179.jpg" />
+    <Content Include="book_image\18.jpg" />
+    <Content Include="book_image\180.jpg" />
+    <Content Include="book_image\181.jpg" />
+    <Content Include="book_image\182.jpg" />
+    <Content Include="book_image\183.jpg" />
+    <Content Include="book_image\184.jpg" />
+    <Content Include="book_image\185.jpg" />
+    <Content Include="book_image\186.jpg" />
+    <Content Include="book_image\187.jpg" />
+    <Content Include="book_image\188.jpg" />
+    <Content Include="book_image\189.jpg" />
+    <Content Include="book_image\19.jpg" />
+    <Content Include="book_image\190.jpg" />
+    <Content Include="book_image\191.jpg" />
+    <Content Include="book_image\192.jpg" />
+    <Content Include="book_image\193.jpg" />
+    <Content Include="book_image\194.jpg" />
+    <Content Include="book_image\195.jpg" />
+    <Content Include="book_image\196.jpg" />
+    <Content Include="book_image\197.jpg" />
+    <Content Include="book_image\198.jpg" />
+    <Content Include="book_image\199.jpg" />
+    <Content Include="book_image\2.jpg" />
+    <Content Include="book_image\20.jpg" />
+    <Content Include="book_image\200.jpg" />
+    <Content Include="book_image\201.jpg" />
+    <Content Include="book_image\202.jpg" />
+    <Content Include="book_image\203.jpg" />
+    <Content Include="book_image\204.jpg" />
+    <Content Include="book_image\205.jpg" />
+    <Content Include="book_image\206.jpg" />
+    <Content Include="book_image\207.jpg" />
+    <Content Include="book_image\208.jpg" />
+    <Content Include="book_image\209.jpg" />
+    <Content Include="book_image\21.jpg" />
+    <Content Include="book_image\210.jpg" />
+    <Content Include="book_image\211.jpg" />
+    <Content Include="book_image\212.jpg" />
+    <Content Include="book_image\213.jpg" />
+    <Content Include="book_image\214.jpg" />
+    <Content Include="book_image\215.jpg" />
+    <Content Include="book_image\216.jpg" />
+    <Content Include="book_image\217.jpg" />
+    <Content Include="book_image\218.jpg" />
+    <Content Include="book_image\219.jpg" />
+    <Content Include="book_image\22.jpg" />
+    <Content Include="book_image\220.jpg" />
+    <Content Include="book_image\221.jpg" />
+    <Content Include="book_image\222.jpg" />
+    <Content Include="book_image\223.jpg" />
+    <Content Include="book_image\224.jpg" />
+    <Content Include="book_image\225.jpg" />
+    <Content Include="book_image\226.jpg" />
+    <Content Include="book_image\227.jpg" />
+    <Content Include="book_image\228.jpg" />
+    <Content Include="book_image\229.jpg" />
+    <Content Include="book_image\23.jpg" />
+    <Content Include="book_image\230.jpg" />
+    <Content Include="book_image\231.jpg" />
+    <Content Include="book_image\232.jpg" />
+    <Content Include="book_image\233.jpg" />
+    <Content Include="book_image\234.jpg" />
+    <Content Include="book_image\235.jpg" />
+    <Content Include="book_image\236.jpg" />
+    <Content Include="book_image\237.jpg" />
+    <Content Include="book_image\238.jpg" />
+    <Content Include="book_image\239.jpg" />
+    <Content Include="book_image\24.jpg" />
+    <Content Include="book_image\240.jpg" />
+    <Content Include="book_image\241.jpg" />
+    <Content Include="book_image\242.jpg" />
+    <Content Include="book_image\243.jpg" />
+    <Content Include="book_image\244.jpg" />
+    <Content Include="book_image\245.jpg" />
+    <Content Include="book_image\246.jpg" />
+    <Content Include="book_image\247.jpg" />
+    <Content Include="book_image\248.jpg" />
+    <Content Include="book_image\249.jpg" />
+    <Content Include="book_image\25.jpg" />
+    <Content Include="book_image\250.jpg" />
+    <Content Include="book_image\251.jpg" />
+    <Content Include="book_image\252.jpg" />
+    <Content Include="book_image\253.jpg" />
+    <Content Include="book_image\254.jpg" />
+    <Content Include="book_image\255.jpg" />
+    <Content Include="book_image\256.jpg" />
+    <Content Include="book_image\257.jpg" />
+    <Content Include="book_image\258.jpg" />
+    <Content Include="book_image\259.jpg" />
+    <Content Include="book_image\26.jpg" />
+    <Content Include="book_image\260.jpg" />
+    <Content Include="book_image\261.jpg" />
+    <Content Include="book_image\262.jpg" />
+    <Content Include="book_image\263.jpg" />
+    <Content Include="book_image\264.jpg" />
+    <Content Include="book_image\265.jpg" />
+    <Content Include="book_image\266.jpg" />
+    <Content Include="book_image\267.jpg" />
+    <Content Include="book_image\268.jpg" />
+    <Content Include="book_image\269.jpg" />
+    <Content Include="book_image\27.jpg" />
+    <Content Include="book_image\270.jpg" />
+    <Content Include="book_image\28.jpg" />
+    <Content Include="book_image\29.jpg" />
+    <Content Include="book_image\3.jpg" />
+    <Content Include="book_image\30.jpg" />
+    <Content Include="book_image\31.jpg" />
+    <Content Include="book_image\32.jpg" />
+    <Content Include="book_image\33.jpg" />
+    <Content Include="book_image\34.jpg" />
+    <Content Include="book_image\35.jpg" />
+    <Content Include="book_image\36.jpg" />
+    <Content Include="book_image\37.jpg" />
+    <Content Include="book_image\38.jpg" />
+    <Content Include="book_image\39.jpg" />
+    <Content Include="book_image\4.jpg" />
+    <Content Include="book_image\40.jpg" />
+    <Content Include="book_image\41.jpg" />
+    <Content Include="book_image\42.jpg" />
+    <Content Include="book_image\43.jpg" />
+    <Content Include="book_image\44.jpg" />
+    <Content Include="book_image\45.jpg" />
+    <Content Include="book_image\46.jpg" />
+    <Content Include="book_image\47.jpg" />
+    <Content Include="book_image\48.jpg" />
+    <Content Include="book_image\49.jpg" />
+    <Content Include="book_image\5.jpg" />
+    <Content Include="book_image\50.jpg" />
+    <Content Include="book_image\51.jpg" />
+    <Content Include="book_image\52.jpg" />
+    <Content Include="book_image\53.jpg" />
+    <Content Include="book_image\54.jpg" />
+    <Content Include="book_image\55.jpg" />
+    <Content Include="book_image\56.jpg" />
+    <Content Include="book_image\57.jpg" />
+    <Content Include="book_image\58.jpg" />
+    <Content Include="book_image\59.jpg" />
+    <Content Include="book_image\6.jpg" />
+    <Content Include="book_image\60.jpg" />
+    <Content Include="book_image\61.jpg" />
+    <Content Include="book_image\62.jpg" />
+    <Content Include="book_image\63.jpg" />
+    <Content Include="book_image\64.jpg" />
+    <Content Include="book_image\65.jpg" />
+    <Content Include="book_image\66.jpg" />
+    <Content Include="book_image\67.jpg" />
+    <Content Include="book_image\68.jpg" />
+    <Content Include="book_image\69.jpg" />
+    <Content Include="book_image\7.jpg" />
+    <Content Include="book_image\70.jpg" />
+    <Content Include="book_image\71.jpg" />
+    <Content Include="book_image\72.jpg" />
+    <Content Include="book_image\73.jpg" />
+    <Content Include="book_image\74.jpg" />
+    <Content Include="book_image\75.jpg" />
+    <Content Include="book_image\76.jpg" />
+    <Content Include="book_image\77.jpg" />
+    <Content Include="book_image\78.jpg" />
+    <Content Include="book_image\79.jpg" />
+    <Content Include="book_image\8.jpg" />
+    <Content Include="book_image\80.jpg" />
+    <Content Include="book_image\81.jpg" />
+    <Content Include="book_image\82.jpg" />
+    <Content Include="book_image\83.jpg" />
+    <Content Include="book_image\84.jpg" />
+    <Content Include="book_image\85.jpg" />
+    <Content Include="book_image\86.jpg" />
+    <Content Include="book_image\87.jpg" />
+    <Content Include="book_image\88.jpg" />
+    <Content Include="book_image\89.jpg" />
+    <Content Include="book_image\9.jpg" />
+    <Content Include="book_image\90.jpg" />
+    <Content Include="book_image\91.jpg" />
+    <Content Include="book_image\92.jpg" />
+    <Content Include="book_image\93.jpg" />
+    <Content Include="book_image\94.jpg" />
+    <Content Include="book_image\95.jpg" />
+    <Content Include="book_image\96.jpg" />
+    <Content Include="book_image\97.jpg" />
+    <Content Include="book_image\98.jpg" />
+    <Content Include="book_image\99.jpg" />
+    <Content Include="images\Home\4OBEW~%25ZDJ%285ZHP%407SPJU_X.jpg" />
+    <Content Include="images\Home\avatar60x60.jpg" />
+    <Content Include="images\Home\banner-img.jpg" />
+    <Content Include="images\Home\banner-img1.jpg" />
+    <Content Include="images\Home\banner-img2.jpg" />
+    <Content Include="images\Home\banner-img3.jpg" />
+    <Content Include="images\Home\block-banner.png" />
+    <Content Include="images\Home\blog-img1.jpg" />
+    <Content Include="images\Home\btn_remove.png" />
+    <Content Include="images\Home\bullets.png" />
+    <Content Include="images\Home\bullet_1.png" />
+    <Content Include="images\Home\close-icon.png" />
+    <Content Include="images\Home\close_icon.png" />
+    <Content Include="images\Home\electronics-img.png" />
+    <Content Include="images\Home\english.png" />
+    <Content Include="images\Home\f-box-close-icon.png" />
+    <Content Include="images\Home\footer-logo.png" />
+    <Content Include="images\Home\francais.png" />
+    <Content Include="images\Home\furniture-img.png" />
+    <Content Include="images\Home\german.png" />
+    <Content Include="images\Home\icon_arrow_down.png" />
+    <Content Include="images\Home\icon_arrow_prev.png" />
+    <Content Include="images\Home\icon_arrow_prev_over.png" />
+    <Content Include="images\Home\icon_arrow_up.png" />
+    <Content Include="images\Home\icon_breadcrumbs.png" />
+    <Content Include="images\Home\icon_grid.png" />
+    <Content Include="images\Home\icon_grid_act.gif" />
+    <Content Include="images\Home\icon_grid_act.png" />
+    <Content Include="images\Home\icon_grid_over.png" />
+    <Content Include="images\Home\icon_list.png" />
+    <Content Include="images\Home\icon_list_act.gif" />
+    <Content Include="images\Home\icon_list_act.png" />
+    <Content Include="images\Home\icon_list_over.png" />
+    <Content Include="images\Home\image-delivery.jpg" />
+    <Content Include="images\Home\large-icon-sitemap.png" />
+    <Content Include="images\Home\leftNav.png" />
+    <Content Include="images\Home\logo.png" />
+    <Content Include="images\Home\logo14.png" />
+    <Content Include="images\Home\logo6.png" />
+    <Content Include="images\Home\men-img.png" />
+    <Content Include="images\Home\menu_furniture.png" />
+    <Content Include="images\Home\mgkloading1.gif" />
+    <Content Include="images\Home\minus.png" />
+    <Content Include="images\Home\newsletter-bg.png" />
+    <Content Include="images\Home\offer-banner1.jpg" />
+    <Content Include="images\Home\offer-banner1.png" />
+    <Content Include="images\Home\offer-banner2.png" />
+    <Content Include="images\Home\offerBanner.jpg" />
+    <Content Include="images\Home\payment-1.png" />
+    <Content Include="images\Home\payment-2.png" />
+    <Content Include="images\Home\payment-3.png" />
+    <Content Include="images\Home\payment-4.png" />
+    <Content Include="images\Home\plus-img.png" />
+    <Content Include="images\Home\plus.png" />
+    <Content Include="images\Home\quick-view.png" />
+    <Content Include="images\Home\search-icon.png" />
+    <Content Include="images\Home\search-icon1.png" />
+    <Content Include="images\Home\seller.png" />
+    <Content Include="images\Home\signal.png" />
+    <Content Include="images\Home\slideshow-arrows.png" />
+    <Content Include="images\Home\tab-pager-ring-lgray.png" />
+    <Content Include="images\Home\to-top-arrow.png" />
+    <Content Include="images\Home\tool_arrow_down.png" />
+    <Content Include="images\Home\tool_arrow_down_o.png" />
+    <Content Include="images\Home\tool_arrow_up.png" />
+    <Content Include="images\Home\top-arrow.png" />
+    <Content Include="images\Home\women-img.png" />
+    <Content Include="images\Home\women_banner.png" />
+    <Content Include="images\Home\women_jwellery.png" />
+    <Content Include="images\order.jpg" />
+    <Content Include="images\user.jpg" />
+    <Content Include="images\UserPhoto\0.jpeg" />
+    <Content Include="images\UserPhoto\1.jpeg" />
+    <Content Include="images\UserPhoto\2.jpeg" />
+    <Content Include="images\UserPhoto\29.jpeg" />
+    <Content Include="images\UserPhoto\41.jpeg" />
+    <Content Include="images\UserPhoto\61.jpeg" />
+    <Content Include="images\UserPhoto\64.jpeg" />
+    <Content Include="images\UserPhoto\81.jpeg" />
+    <Content Include="js\ACCOUNT\bootstrap.min.js" />
+    <Content Include="js\ACCOUNT\cloud-zoom.js" />
+    <Content Include="js\ACCOUNT\common.js" />
+    <Content Include="js\ACCOUNT\jquery.flexslider.js" />
+    <Content Include="js\ACCOUNT\jquery.min.js" />
+    <Content Include="js\ACCOUNT\owl.carousel.min.js" />
+    <Content Include="js\ACCOUNT\slider.js" />
+    <Content Include="js\AddNewBook\bootstrap.min.js" />
+    <Content Include="js\AddNewBook\cloud-zoom.js" />
+    <Content Include="js\AddNewBook\common.js" />
+    <Content Include="js\AddNewBook\jquery.flexslider.js" />
+    <Content Include="js\AddNewBook\jquery.min.js" />
+    <Content Include="js\AddNewBook\owl.carousel.min.js" />
+    <Content Include="js\AddNewBook\slider.js" />
+    <Content Include="js\Home\bootstrap.min.js" />
+    <Content Include="js\Home\common.js" />
+    <Content Include="js\Home\imagezoom.js" />
+    <Content Include="js\Home\jquery.flexslider.js" />
+    <Content Include="js\Home\jquery.min.js" />
+    <Content Include="js\Home\owl.carousel.min.js" />
+    <Content Include="js\Home\slider.js" />
+    <Content Include="js\SHOPPING_CART\blogmate.css" />
+    <Content Include="js\SHOPPING_CART\bootstrap.css" />
+    <Content Include="js\SHOPPING_CART\bootstrap.min.css" />
+    <Content Include="js\SHOPPING_CART\fancybox.css" />
+    <Content Include="js\SHOPPING_CART\flexslider.css" />
+    <Content Include="js\SHOPPING_CART\font-awesome.css" />
+    <Content Include="js\SHOPPING_CART\owl.carousel.css" />
+    <Content Include="js\SHOPPING_CART\owl.theme.css" />
+    <Content Include="js\SHOPPING_CART\slider.css" />
+    <Content Include="js\SHOPPING_CART\style.css" />
+    <Content Include="js\SHOPPING_CART\style1.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Products-images\AddNewBook\product1.jpg" />
+    <Content Include="Products-images\Home\product1.jpg" />
+    <Content Include="Products-images\Home\product10.jpg" />
+    <Content Include="Products-images\Home\product11.jpg" />
+    <Content Include="Products-images\Home\product12.jpg" />
+    <Content Include="Products-images\Home\product2.jpg" />
+    <Content Include="Products-images\Home\product3.jpg" />
+    <Content Include="Products-images\Home\product4.jpg" />
+    <Content Include="Products-images\Home\product5.jpg" />
+    <Content Include="Products-images\Home\product6.jpg" />
+    <Content Include="Products-images\Home\product7.jpg" />
+    <Content Include="Products-images\Home\product8.jpg" />
+    <Content Include="Products-images\Home\product9.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Home\.DS_Store" />
+    <Content Include="js\ACCOUNT\.DS_Store" />
+    <Content Include="Products-images\Home\.DS_Store" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="user_image\10048.jpg" />
+    <Content Include="user_image\10150.jpg" />
+    <Content Include="user_image\10418.jpg" />
+    <Content Include="user_image\10839.jpg" />
+    <Content Include="user_image\11137.jpg" />
+    <Content Include="user_image\11353.jpg" />
+    <Content Include="user_image\11738.jpg" />
+    <Content Include="user_image\11855.jpg" />
+    <Content Include="user_image\12642.jpg" />
+    <Content Include="user_image\12846.jpg" />
+    <Content Include="user_image\13291.jpg" />
+    <Content Include="user_image\13512.jpg" />
+    <Content Include="user_image\13528.jpg" />
+    <Content Include="user_image\13741.jpg" />
+    <Content Include="user_image\14060.jpg" />
+    <Content Include="user_image\14729.jpg" />
+    <Content Include="user_image\14823.jpg" />
+    <Content Include="user_image\15640.jpg" />
+    <Content Include="user_image\15816.jpg" />
+    <Content Include="user_image\16285.jpg" />
+    <Content Include="user_image\16632.jpg" />
+    <Content Include="user_image\17145.jpg" />
+    <Content Include="user_image\17397.jpg" />
+    <Content Include="user_image\17441.jpg" />
+    <Content Include="user_image\17449.jpg" />
+    <Content Include="user_image\18025.jpg" />
+    <Content Include="user_image\18079.jpg" />
+    <Content Include="user_image\18308.jpg" />
+    <Content Include="user_image\18572.jpg" />
+    <Content Include="user_image\18832.png" />
+    <Content Include="user_image\18954.jpg" />
+    <Content Include="user_image\19195.jpg" />
+    <Content Include="user_image\19616.jpg" />
+    <Content Include="user_image\19763.jpg" />
+    <Content Include="user_image\20588.jpg" />
+    <Content Include="user_image\20706.jpg" />
+    <Content Include="user_image\20967.jpg" />
+    <Content Include="user_image\21048.jpg" />
+    <Content Include="user_image\21416.jpg" />
+    <Content Include="user_image\21637.jpg" />
+    <Content Include="user_image\21709.jpg" />
+    <Content Include="user_image\21774.jpg" />
+    <Content Include="user_image\22006.jpg" />
+    <Content Include="user_image\22344.jpg" />
+    <Content Include="user_image\22401.jpg" />
+    <Content Include="user_image\22422.jpg" />
+    <Content Include="user_image\22583.jpg" />
+    <Content Include="user_image\22815.jpg" />
+    <Content Include="user_image\23795.jpg" />
+    <Content Include="user_image\24280.jpg" />
+    <Content Include="user_image\24645.jpg" />
+    <Content Include="user_image\24667.jpg" />
+    <Content Include="user_image\25013.jpg" />
+    <Content Include="user_image\25360.jpg" />
+    <Content Include="user_image\25519.jpg" />
+    <Content Include="user_image\25611.jpg" />
+    <Content Include="user_image\27034.jpg" />
+    <Content Include="user_image\27139.jpg" />
+    <Content Include="user_image\27176.jpg" />
+    <Content Include="user_image\27250.jpg" />
+    <Content Include="user_image\27759.jpg" />
+    <Content Include="user_image\27915.jpg" />
+    <Content Include="user_image\28055.jpg" />
+    <Content Include="user_image\28211.jpg" />
+    <Content Include="user_image\28383.jpg" />
+    <Content Include="user_image\28518.jpg" />
+    <Content Include="user_image\28890.jpg" />
+    <Content Include="user_image\29496.jpg" />
+    <Content Include="user_image\29935.jpg" />
+    <Content Include="user_image\30089.jpg" />
+    <Content Include="user_image\30110.jpg" />
+    <Content Include="user_image\30124.jpg" />
+    <Content Include="user_image\30189.jpg" />
+    <Content Include="user_image\30380.jpg" />
+    <Content Include="user_image\31103.jpg" />
+    <Content Include="user_image\31894.jpg" />
+    <Content Include="user_image\31928.jpg" />
+    <Content Include="user_image\32472.jpg" />
+    <Content Include="user_image\32480.jpg" />
+    <Content Include="user_image\32978.jpg" />
+    <Content Include="user_image\33174.jpg" />
+    <Content Include="user_image\33346.jpg" />
+    <Content Include="user_image\34300.jpg" />
+    <Content Include="user_image\34442.jpg" />
+    <Content Include="user_image\34480.jpg" />
+    <Content Include="user_image\34664.jpg" />
+    <Content Include="user_image\34969.jpg" />
+    <Content Include="user_image\35392.jpg" />
+    <Content Include="user_image\35593.jpg" />
+    <Content Include="user_image\36204.jpg" />
+    <Content Include="user_image\37022.jpg" />
+    <Content Include="user_image\37074.jpg" />
+    <Content Include="user_image\37590.jpg" />
+    <Content Include="user_image\37892.jpg" />
+    <Content Include="user_image\37913.jpg" />
+    <Content Include="user_image\38570.jpg" />
+    <Content Include="user_image\38675.jpg" />
+    <Content Include="user_image\38920.jpg" />
+    <Content Include="user_image\39097.jpg" />
+    <Content Include="user_image\39149.jpg" />
+    <Content Include="user_image\39225.jpg" />
+    <Content Include="user_image\39446.jpg" />
+    <Content Include="user_image\39758.jpg" />
+    <Content Include="user_image\40569.jpg" />
+    <Content Include="user_image\40570.jpg" />
+    <Content Include="user_image\40642.jpg" />
+    <Content Include="user_image\42123.jpg" />
+    <Content Include="user_image\42614.jpg" />
+    <Content Include="user_image\43190.jpg" />
+    <Content Include="user_image\43599.jpg" />
+    <Content Include="user_image\44358.jpg" />
+    <Content Include="user_image\44604.jpg" />
+    <Content Include="user_image\45039.jpg" />
+    <Content Include="user_image\45310.png" />
+    <Content Include="user_image\45928.jpg" />
+    <Content Include="user_image\46068.jpg" />
+    <Content Include="user_image\46339.jpg" />
+    <Content Include="user_image\46621.jpg" />
+    <Content Include="user_image\46698.jpg" />
+    <Content Include="user_image\46872.jpg" />
+    <Content Include="user_image\47442.jpg" />
+    <Content Include="user_image\48060.jpg" />
+    <Content Include="user_image\48383.jpg" />
+    <Content Include="user_image\48575.jpg" />
+    <Content Include="user_image\48704.jpg" />
+    <Content Include="user_image\48708.jpg" />
+    <Content Include="user_image\48816.jpg" />
+    <Content Include="user_image\48976.jpg" />
+    <Content Include="user_image\49336.jpg" />
+    <Content Include="user_image\49474.jpg" />
+    <Content Include="user_image\49856.jpg" />
+    <Content Include="user_image\50207.jpg" />
+    <Content Include="user_image\51353.jpg" />
+    <Content Include="user_image\51907.jpg" />
+    <Content Include="user_image\52624.jpg" />
+    <Content Include="user_image\52890.jpg" />
+    <Content Include="user_image\53109.jpg" />
+    <Content Include="user_image\53217.jpg" />
+    <Content Include="user_image\53364.jpg" />
+    <Content Include="user_image\53994.jpg" />
+    <Content Include="user_image\54452.jpg" />
+    <Content Include="user_image\54582.jpg" />
+    <Content Include="user_image\54834.jpg" />
+    <Content Include="user_image\55381.jpg" />
+    <Content Include="user_image\55448.jpg" />
+    <Content Include="user_image\55468.jpg" />
+    <Content Include="user_image\55610.jpg" />
+    <Content Include="user_image\55633.jpg" />
+    <Content Include="user_image\56251.jpg" />
+    <Content Include="user_image\56417.jpg" />
+    <Content Include="user_image\56452.jpg" />
+    <Content Include="user_image\56478.jpg" />
+    <Content Include="user_image\57096.jpg" />
+    <Content Include="user_image\57262.jpg" />
+    <Content Include="user_image\57434.jpg" />
+    <Content Include="user_image\57544.jpg" />
+    <Content Include="user_image\58022.jpg" />
+    <Content Include="user_image\58307.jpg" />
+    <Content Include="user_image\58654.jpg" />
+    <Content Include="user_image\59014.jpg" />
+    <Content Include="user_image\59218.jpg" />
+    <Content Include="user_image\59579.jpg" />
+    <Content Include="user_image\59921.jpg" />
+    <Content Include="user_image\60252.jpg" />
+    <Content Include="user_image\60754.jpg" />
+    <Content Include="user_image\62229.jpg" />
+    <Content Include="user_image\62379.jpg" />
+    <Content Include="user_image\62816.jpg" />
+    <Content Include="user_image\63010.jpg" />
+    <Content Include="user_image\63154.jpg" />
+    <Content Include="user_image\63969.jpg" />
+    <Content Include="user_image\64160.jpg" />
+    <Content Include="user_image\64227.jpg" />
+    <Content Include="user_image\64280.jpg" />
+    <Content Include="user_image\64471.jpg" />
+    <Content Include="user_image\64924.jpg" />
+    <Content Include="user_image\65120.jpg" />
+    <Content Include="user_image\65147.jpg" />
+    <Content Include="user_image\65198.jpg" />
+    <Content Include="user_image\65275.jpg" />
+    <Content Include="user_image\65306.jpg" />
+    <Content Include="user_image\65572.jpg" />
+    <Content Include="user_image\65637.jpg" />
+    <Content Include="user_image\66546.jpg" />
+    <Content Include="user_image\66649.jpg" />
+    <Content Include="user_image\67071.jpg" />
+    <Content Include="user_image\67379.jpg" />
+    <Content Include="user_image\67478.jpg" />
+    <Content Include="user_image\67638.jpg" />
+    <Content Include="user_image\67645.jpg" />
+    <Content Include="user_image\67869.jpg" />
+    <Content Include="user_image\68049.jpg" />
+    <Content Include="user_image\68192.jpg" />
+    <Content Include="user_image\68707.jpg" />
+    <Content Include="user_image\68776.jpg" />
+    <Content Include="user_image\69559.jpg" />
+    <Content Include="user_image\69843.jpg" />
+    <Content Include="user_image\69851.jpg" />
+    <Content Include="user_image\70015.jpg" />
+    <Content Include="user_image\70585.jpg" />
+    <Content Include="user_image\71081.jpg" />
+    <Content Include="user_image\71158.jpg" />
+    <Content Include="user_image\71443.jpg" />
+    <Content Include="user_image\71753.jpg" />
+    <Content Include="user_image\72121.jpg" />
+    <Content Include="user_image\72280.jpg" />
+    <Content Include="user_image\72409.jpg" />
+    <Content Include="user_image\72791.jpg" />
+    <Content Include="user_image\72807.jpg" />
+    <Content Include="user_image\73327.jpg" />
+    <Content Include="user_image\73545.jpg" />
+    <Content Include="user_image\73920.jpg" />
+    <Content Include="user_image\74442.jpg" />
+    <Content Include="user_image\74506.jpg" />
+    <Content Include="user_image\75598.jpg" />
+    <Content Include="user_image\75932.jpg" />
+    <Content Include="user_image\76743.jpg" />
+    <Content Include="user_image\76991.jpg" />
+    <Content Include="user_image\77448.jpg" />
+    <Content Include="user_image\77584.jpg" />
+    <Content Include="user_image\77981.jpg" />
+    <Content Include="user_image\78183.jpg" />
+    <Content Include="user_image\78845.jpg" />
+    <Content Include="user_image\79197.jpg" />
+    <Content Include="user_image\79542.jpg" />
+    <Content Include="user_image\79742.jpg" />
+    <Content Include="user_image\79855.jpg" />
+    <Content Include="user_image\80213.jpg" />
+    <Content Include="user_image\80396.jpg" />
+    <Content Include="user_image\80454.jpg" />
+    <Content Include="user_image\80647.jpg" />
+    <Content Include="user_image\80710.jpg" />
+    <Content Include="user_image\80957.jpg" />
+    <Content Include="user_image\82414.jpg" />
+    <Content Include="user_image\82717.jpg" />
+    <Content Include="user_image\82960.jpg" />
+    <Content Include="user_image\83551.jpg" />
+    <Content Include="user_image\83790.jpg" />
+    <Content Include="user_image\83848.jpg" />
+    <Content Include="user_image\83857.jpg" />
+    <Content Include="user_image\83933.jpg" />
+    <Content Include="user_image\84066.jpg" />
+    <Content Include="user_image\84527.jpg" />
+    <Content Include="user_image\84559.jpg" />
+    <Content Include="user_image\84589.jpg" />
+    <Content Include="user_image\85188.jpg" />
+    <Content Include="user_image\85776.jpg" />
+    <Content Include="user_image\85793.jpg" />
+    <Content Include="user_image\86334.jpg" />
+    <Content Include="user_image\86457.jpg" />
+    <Content Include="user_image\86460.jpg" />
+    <Content Include="user_image\86689.jpg" />
+    <Content Include="user_image\86800.jpg" />
+    <Content Include="user_image\87782.jpg" />
+    <Content Include="user_image\87943.jpg" />
+    <Content Include="user_image\88231.jpg" />
+    <Content Include="user_image\88543.jpg" />
+    <Content Include="user_image\88968.jpg" />
+    <Content Include="user_image\89610.jpg" />
+    <Content Include="user_image\89631.jpg" />
+    <Content Include="user_image\89787.jpg" />
+    <Content Include="user_image\90473.jpg" />
+    <Content Include="user_image\90609.jpg" />
+    <Content Include="user_image\90770.jpg" />
+    <Content Include="user_image\91252.jpg" />
+    <Content Include="user_image\91775.jpg" />
+    <Content Include="user_image\91852.jpg" />
+    <Content Include="user_image\91954.jpg" />
+    <Content Include="user_image\91966.jpg" />
+    <Content Include="user_image\92167.jpg" />
+    <Content Include="user_image\92267.jpg" />
+    <Content Include="user_image\92363.jpg" />
+    <Content Include="user_image\92756.jpg" />
+    <Content Include="user_image\93349.jpg" />
+    <Content Include="user_image\93498.jpg" />
+    <Content Include="user_image\93695.jpg" />
+    <Content Include="user_image\93895.jpg" />
+    <Content Include="user_image\93984.jpg" />
+    <Content Include="user_image\94201.jpg" />
+    <Content Include="user_image\94358.jpg" />
+    <Content Include="user_image\94652.jpg" />
+    <Content Include="user_image\94912.jpg" />
+    <Content Include="user_image\95147.jpg" />
+    <Content Include="user_image\95428.jpg" />
+    <Content Include="user_image\95530.jpg" />
+    <Content Include="user_image\95639.jpg" />
+    <Content Include="user_image\95778.jpg" />
+    <Content Include="user_image\96240.jpg" />
+    <Content Include="user_image\96297.jpg" />
+    <Content Include="user_image\96649.jpg" />
+    <Content Include="user_image\97006.jpg" />
+    <Content Include="user_image\97373.jpg" />
+    <Content Include="user_image\97438.jpg" />
+    <Content Include="user_image\98002.jpg" />
+    <Content Include="user_image\98785.jpg" />
+    <Content Include="user_image\98893.jpg" />
+    <Content Include="user_image\99009.jpg" />
+    <Content Include="user_image\99226.jpg" />
+    <Content Include="user_image\99499.jpg" />
+    <Content Include="user_image\99869.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Regist.cshtml" />
+    <Content Include="Views\User\Verify.cshtml" />
+    <Content Include="Views\Product\Home.cshtml" />
+    <Content Include="Views\User\dashboard.cshtml" />
+    <Content Include="Views\User\change_Info.cshtml" />
+    <Content Include="Views\User\receiving.cshtml" />
+    <Content Include="Views\User\show.cshtml" />
+    <Content Include="Views\User\aboutUs.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\adminIndex.cshtml" />
+    <Content Include="Views\Admin\adminOrder.cshtml" />
+    <Content Include="Views\Admin\adminBook.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Product\AddNewBook.cshtml" />
+    <Content Include="Views\Product\BookDetails.cshtml" />
+    <Content Include="Views\Order\myorder.cshtml" />
+    <Content Include="Views\Order\sold_goods.cshtml" />
+    <Content Include="Views\ShoppingCarts\Index.cshtml" />
+    <Content Include="Views\ShoppingCarts\order.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="CSS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4052</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4052/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

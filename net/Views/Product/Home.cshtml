@@ -1,0 +1,176 @@
+﻿@model List<net.DAL.BookInformation>
+@{
+    ViewBag.Title = "Home";
+}
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="database project">
+    <meta name="author" content="Ivy_w">
+    <title>home</title>
+
+    <!-- CSS Style -->
+    <link href="~/CSS/Home/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/slider.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/owl.theme.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/style.css" rel="stylesheet" type="text/css" />
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/Home/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/Home/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/Home/common.js"></script>
+    <script type="text/javascript" src="~/js/Home/slider.js"></script>
+    <script type="text/javascript" src="~/js/Home/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 1100, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+        //]]>
+
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+
+</head>
+
+<body>
+    <!-- 动态滚动 -->
+    <div class="container">
+        <div class="slider-section">
+            <div class="slider-intro">
+                <div class="the-slideshow slideshow-wrapper">
+                    <ul class="slideshow" style="overflow: hidden;">
+                        <li class="slide">
+                            <p><a> <img src="/images/Home/banner-img1.jpg" alt="Banner Image" /></a></p>
+                            <div class="caption light1 top-right">
+                                <div class="caption-inner" style="font-family:Arial, Helvetica, sans-serif">
+                                    <p class="heading">James</p>
+                                    <p class="heading1">In cooperation with the heirs of the archive a selection of images has been brought together in this book. It offers many previously unpublished images, from Jacques Brel, Martin Luther King</p>
+                                    <p class="intro-btn"><a title="Click to see" href="/Product/BookDetails?book_id=2&count=">点击查看</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="slide">
+                            <p><a> <img src="/images/Home/banner-img2.jpg" alt="Banner Image1" /></a></p>
+                            <div class="caption light1 top-right">
+                                <div class="caption-inner">
+                                    <p class="heading">HIGH TIDE</p>
+                                    <p class="heading1">It is with pride that we announce the next MENDO initiative & design: High Tide, A Surf Odyssey - with photographer Chris Burkard.</p>
+                                    <p class="intro-btn"><a title="Click to see" href="/Product/BookDetails?book_id=4&count=">点击查看</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="slide">
+                            <p><a title="#"> <img src="/images/Home/banner-img3.jpg" alt="Banner Image" /> </a></p>
+                            <div class="caption light1 top-right">
+                                <div class="caption-inner">
+                                    <p class="heading">MR</p>
+                                    <p class="heading1">Dutch photographer Ferry van der Nat has been taking Polariod images of men for years. Many of the men he scouted have made it to the major runways and fashion mags around the world. In June, Van der Nat releases his first monograph, simply called Mr. Mr. is a luxurious book with just over 300 pages and 285 high quality images.</p>
+                                    <p class="intro-btn"><a title="Click to see" href="/Product/BookDetails?book_id=5&count=">点击查看</a></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a id="home-slides-prev" class="backward browse-button" href="#">previous</a> <a id="home-slides-next" class="forward browse-button" href="#">next</a>
+                    <div id="home-slides-pager" class="tab-pager tab-pager-img tab-pager-ring-lgray">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 动态滚动end -->
+    <!-- 基本信息介绍 -->
+    <div class="service-section">
+        <div class="container">
+            <div class="row">
+                <div id="store-messages">
+                    <div class="col-md-4 col-xs-12 col-sm-4">
+                        <i class="icon-refresh">&nbsp;</i>
+                        <div class="message"> <span><strong>退换货说明</strong> 视商品而定 </span>本网站仅提供交易平台，退换货请与卖家协商。 </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12 col-sm-4">
+                        <i class="icon-truck">&nbsp;</i>
+                        <div class="message"><span><strong>运费说明</strong> 仅限同校区</span>基于大学生平台的交易平台。 </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12 col-sm-4">
+                        <i class="icon-discount">&nbsp;</i>
+                        <div class="message"><span><strong>限时折扣</strong> 特惠</span>详情查看畅销推荐。 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 基本信息介绍end -->
+    <!-- 静态商品 -->
+    <section class="main-container col1-layout home-content-container">
+        <div class="container">
+            <div class="std">
+                <!-- 畅销推荐 -->
+                <div class="best-seller-pro">
+                    <div class="slider-items-products">
+                        <div class="new_title center">
+                            <h2>畅销推荐</h2>
+                        </div>
+                        <div id="best-seller-slider" class="product-flexslider hidden-buttons">
+                            <div class="slider-items slider-width-col4">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="product-block">
+                                                <div class="product-image">
+                                                    <a name="" href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=">
+                                                        <figure class="product-display">
+                                                            <div class="sale-label sale-top-left">折扣</div>
+                                                            <img style="width:90%;height:100%;" src="@item.book.picture_url" class="  product-mainpic" alt="product-image"> <img class="product-secondpic" alt="product-image" src="@item.book.picture_url">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <div class="product-meta">
+                                                    <div class="product-action">
+                                                        <a class="addcart" href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=">
+                                                            <i class="icon-shopping-cart">&nbsp;</i>
+                                                            查看书本详情
+                                                        </a>
+                                                        <a href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=" class="quickview">
+                                                            <i class="icon-zoom"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"><a href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=" title="Ut tincidunt tortor"> @Html.DisplayFor(modelitem => item.book.book_name)</a> </div>
+                                                    <div class="item-content">
+                                                        <div class="item-price">
+                                                            <div class="price-box">
+                                                                <p class="old-price"><span class="price">@Html.DisplayFor(modelitem => item.bookDetails.price)</span> </p>
+
+
+                                                                <p class="special-price"><span class="price">@Html.DisplayFor(modelitem => item.book.price)</span> </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 静态商品end -->
+</body>
+</html>

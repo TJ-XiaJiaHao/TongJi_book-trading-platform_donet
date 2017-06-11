@@ -1,0 +1,196 @@
+﻿@model List<net.DAL.BookInformation>
+@{
+    ViewBag.Title = "List";
+}
+<!DOCTYPE html>
+<html lang="zh-cmn">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="database project">
+    <meta name="author" content="Ivy_w">
+    <title>search result</title>
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/CSS/Home/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/Home/slider.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/Home/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/Home/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/Home/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/Home/style.css" type="text/css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/Home/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/Home/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/Home/common.js"></script>
+    <script type="text/javascript" src="~/js/Home/slider.js"></script>
+    <script type="text/javascript" src="~/js/Home/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+</head>
+
+
+<body>
+    <!-- Two columns content -->
+    <div class="main-container col2-left-layout">
+        <div class="main container">
+            <div class="row">
+                <section class="col-sm-9 col-sm-push-3">
+                    <div class="col-main">
+                        <div class="category-products">
+                            <ol id="products-list" class="products-list">
+                                @{
+                                    if (Model.Count() == 0)
+                                    {
+                                        <h4>未找到相关书本</h4>
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    <li class="item odd">
+                                        <div class="product-image"> <a href="/Product/BookDetails?book_id=@item.book.book_id&count=" title="HTC Rhyme Sense"> <img class="small-image" src="@item.book.picture_url" alt="product-image" width="230"> </a> </div>
+                                        <div class="product-shop">
+                                            <h2 class="product-name"><a title=" Sample Product" href="/Product/BookDetails?book_id=@item.book.book_id&count="> 书名：@item.book.book_name </a></h2>
+                                            <div class="price-box">
+                                                <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">$@item.bookDetails.price</span> </p>
+                                                <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">$@item.book.price</span> </p>
+                                            </div>
+                                            <div class="desc std" style="height:150px;margin-top:20px;">
+                                                <p>
+                                                    简介：@item.book.introduction
+                                                </p>
+                                            </div>
+                                            <div class="actions">
+                                                <button onclick="window.location.href = '/Product/BookDetails?book_id=@item.book.book_id&count=';" class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>查看书本详情</span></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+                <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">
+                    <div class="block block-layered-nav">
+                        <div class="block-title">快速分类</div>
+                        <div class="block-content">
+                            <p class="block-subtitle">分类选项</p>
+                            <dl id="narrow-by-list">
+                                <dt class="odd">种类</dt>
+                                <dd class="odd">
+                                    <ol>
+                                        <li> <a href="/Product/List?type=经典著作&keyWord=">经典著作</a></li>
+                                        <li> <a href="/Product/List?type=文学&keyWord=">文学</a></li>
+                                        <li> <a href="/Product/List?type=历史学&keyWord=">历史学</a></li>
+                                        <li> <a href="/Product/List?type=哲学&keyWord=">哲学</a></li>
+                                        <li> <a href="/Product/List?type=社会科学&keyWord=">社会科学</a></li>
+                                        <li> <a href="/Product/List?type=教育学&keyWord=">教育学</a></li>
+                                        <li> <a href="/Product/List?type=军事学&keyWord=">军事学</a></li>
+                                        <li> <a href="/Product/List?type=法学&keyWord=">法学</a></li>
+                                        <li> <a href="/Product/List?type=财经管理&keyWord=">财经管理</a></li>
+                                        <li> <a href="/Product/List?type=经济学&keyWord=">经济学</a></li>
+                                        <li> <a href="/Product/List?type=管理学&keyWord=">管理学</a></li>
+                                        <li> <a href="/Product/List?type=专业科学&keyWord=">专业科学</a></li>
+                                        <li> <a href="/Product/List?type=理学&keyWord=">理学</a></li>
+                                        <li> <a href="/Product/List?type=工学&keyWord=">工学</a></li>
+                                        <li> <a href="/Product/List?type=医学&keyWord=">医学</a></li>
+                                        <li> <a href="/Product/List?type=农学&keyWord=">农学</a></li>
+                                    </ol>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="block block-cart">
+                        <div class="block-title ">我的购物车</div>
+                        <div class="block-content">
+                            <div class="summary">
+                                <p class="amount">一共有 <strong>2 件商品</strong> 在购物车中。</p>
+                            </div>
+                            <ul>
+                                <li class="item">
+                                    <a class="product-image" title="Fisher-Price Bubble Mower"><img width="80" alt="product-image" src="/products-images/Home/product11.jpg"></a>
+                                    <div class="product-details">
+                                        <div class="access"> <a class="btn-remove1" title="Remove This Item"> <span class="icon"></span></a> </div>
+                                        <p class="product-name"> <a>操作系统</a> </p>
+                                        <strong>1</strong> x <span class="price">$5</span>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <a class="product-image" title="Fisher-Price Bubble Mower"><img width="80" alt="product-image" src="/products-images/Home/product11.jpg"></a>
+                                    <div class="product-details">
+                                        <div class="access"> <a class="btn-remove1" title="Remove This Item"> <span class="icon"></span></a> </div>
+                                        <p class="product-name"> <a>数据库</a> </p>
+                                        <strong>1</strong> x <span class="price">$10</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="ajax-checkout">
+                                <button type="submit" title="Submit" class="button button-checkout" onclick="window.location.href='/shoppingCarts/Index?'"><span>付款</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block block-list block-viewed">
+                        <div class="block-title"> 最近访问商品 </div>
+                        <div class="block-content">
+                            <ol id="recently-viewed-items">
+                                <li class="item odd">
+                                    <p class="product-name"><a> 数据库</a></p>
+                                </li>
+                                <li class="item even">
+                                    <p class="product-name"><a> 操作系统</a></p>
+                                </li>
+                                <li class="item last odd">
+                                    <p class="product-name"><a> 挪威漫画</a></p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="block block-tags">
+                        <div class="block-title"> 热门标签</div>
+                        <div class="block-content">
+                            <ul class="tags-list">
+                                <li><a style="font-size:110%;" href="">操作系统</a></li>
+                                <li><a style="font-size:86.6666666667%;" href="">计算机系统</a></li>
+                                <li><a style="font-size:145%;" href="">数据库课程设计</a></li>
+                                <li><a style="font-size:75%;" href="">用户交互</a></li>
+                                <li><a style="font-size:110%;" href="">教辅</a></li>
+                                <li><a style="font-size:86%;" href="">HTML</a></li>
+                                <li><a style="font-size:110%;" href="">ASP</a></li>
+                                <li><a style="font-size:108%;" href="">软件工程</a></li>
+                                <li><a style="font-size:86.6666666667%;" href="">同济大学出版</a></li>
+                                <li><a style="font-size:60%;" href="">杂志</a></li>
+                                <li><a style="font-size:86.6666666667%;" href="">订阅</a></li>
+                                <li><a style="font-size:86.6666666667%;" href="">电子书</a></li>
+                                <li><a style="font-size:110%;" href="">教辅</a></li>
+                                <li><a style="font-size:86%;" href="">HTML</a></li>
+                                <li><a style="font-size:110%;" href="">ASP</a></li>
+                                <li><a style="font-size:148%;" href="">软件工程</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="block block-banner"><a><img src="/images/Home/block-banner.png" alt="block-banner"></a></div>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <!-- End Two columns content -->
+</body>
+</html>
+

@@ -1,0 +1,281 @@
+﻿@model net.DAL.AllOrders
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>我的订单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/CSS/order/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/order/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/order/style.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/order/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/order/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/order/font-awesome.css" type="text/css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/SHOPPING_CART/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/common.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/slider.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+</head>
+<body>
+    <div class="main-container col2-right-layout">
+        <div class="main container">
+            <div class="row" style="position:relative;">
+
+                <div style="width:75%;padding-left:15px;">
+                    <ul id="product-detail-tab" class="nav nav-tabs product-tabs" style="background:gray;">
+                        <li class="active"> <a href="#buy" data-toggle="tab"> 购买 </a> </li>
+                        <li> <a href="#sell" data-toggle="tab">出售</a> </li>
+                    </ul>
+                    <div id="productTabContent" class="tab-content">
+                        <section class="tab-pane fade in active" id="buy" style="padding:0px;">
+                            <div class="my-account">
+                                <div class="page-title">
+                                    <h2>我的订单(购买)</h2>
+                                </div>
+                                <div class="my-wishlist">
+                                    <div class="table-responsive">
+                                        @foreach (var order_id in Model.buyer_order.Select(c => c.order_id).Distinct())
+                                        {
+                                            <div style="border:1px dotted;margin-bottom:20px;border-radius:10px 10px 5px 5px;">
+                                            <h4>收货地址</h4>
+                                            <table>
+                                                <thead>
+                                                    <tr class="first last">
+                                                        <th width="200">收货人</th>
+                                                        <th width="200">电话</th>
+                                                        <th width="200">省份</th>
+                                                        <th width="200">城市</th>
+                                                        <th width="200">街道</th>
+                                                        <th width="200">具体地址</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@Model.buyer_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.name</td>
+                                                        <td>@Model.buyer_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.tele_number</td>
+                                                        <td>@Model.buyer_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.province</td>
+                                                        <td>@Model.buyer_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.city</td>
+                                                        <td>@Model.buyer_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.street</td>
+                                                        <td>@Model.buyer_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.street</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr />
+                                            <table id="wishlist-table" class="clean-table linearize-table data-table">
+
+                                                <thead>
+                                                    <tr class="first last">
+                                                        <th class="customer-wishlist-item-image"></th>
+                                                        <th class="customer-wishlist-item-info">书名</th>
+                                                        <th class="customer-wishlist-item-quantity">数量</th>
+                                                        <th class="customer-wishlist-item-price">单价</th>
+                                                        <th class="customer-wishlist-item-orderstate">订单状态</th>
+                                                        <th class="customer-wishlist-item-remove"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr class="first last">
+                                                        <td class="a-right last" colspan="50">
+                                                            @if (Model.buyer_order.Where(c => c.order_id == order_id).First().state == "等待收货")
+                                                            {
+                                                                <button class="button btn-continue" title="Continue Shopping" type="button"><a href="/order/ConfirmReceiving?order_id=@Model.buyer_order.Where(c => c.order_id == order_id).First().order_id">确认收货</a></button>
+                                                            }
+                                                            @if (Model.buyer_order.Where(c => c.order_id == order_id).First().state == "已完成")
+                                                            {
+                                                                <button class="button btn-continue" title="Continue Shopping" type="button"><a href="/order/ApplyRefond?order_id=@Model.buyer_order.Where(c => c.order_id == order_id).First().order_id">申请退款</a></button>
+                                                            }
+                                                            <button id="empty_cart_button" class="button btn-empty" title="Clear Cart" value="empty_cart" name="update_cart_action" type="submit"><a href="~/Product/Home">继续购物</a></button>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    @foreach (var item in Model.buyer_order)
+                                                    {
+                                                        if (item.order_id == order_id)
+                                                        {
+                                                            <tr id="item_31" class="first odd">
+                                                                <td class="wishlist-cell0 customer-wishlist-item-image"><a title="Softwear Women's Designer" href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=" class="product-image"> <img width="150" alt="Softwear Women's Designer" src="@item.book.picture_url"> </a></td>
+                                                                <td class="wishlist-cell1 customer-wishlist-item-info">
+                                                                    <h3 class="product-name"><a title="Softwear Women's Designer" href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=" style="font-weight:700;">@item.book.book_name</a></h3>
+                                                                    <div class="description std">
+                                                                        <div class="inner" style="width:300PX;">@item.book.introduction</div>
+                                                                    </div>
+                                                                <td data-rwd-label="Quantity" class="wishlist-cell2 customer-wishlist-item-quantity">
+                                                                    <div class="cart-cell">
+                                                                        <div class="add-to-cart-alt">
+                                                                            @item.count
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td data-rwd-label="Price" class="wishlist-cell3 customer-wishlist-item-price">
+                                                                    <div class="cart-cell">
+                                                                        <div class="price-box" style="margin-top:0px;"> <span class="regular-price"> <span class="price">$@item.book.price</span> </span> </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="wishlist-cell4 customer-wishlist-item-cart">
+                                                                    <div class="cart-cell">
+                                                                        <p style="margin-top:0px;">@item.state</p>
+
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                             </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="tab-pane fade in active" id="sell" style="padding:0px;">
+                            <div class="my-account">
+                                <div class="page-title">
+                                    <h2>我的订单(出售)</h2>
+                                </div>
+                                <div class="my-wishlist">
+                                    <div class="table-responsive">
+                                        @foreach (var order_id in Model.seller_order.Select(c => c.order_id).Distinct())
+                                        {
+                                            <div style="border:1px dotted;margin-bottom:20px;border-radius:10px 10px 5px 5px;">
+                                            <h3>收货地址</h3>
+                                            <table>
+                                                <thead>
+                                                    <tr class="first last">
+                                                        <th width="200">收货人</th>
+                                                        <th width="200">电话</th>
+                                                        <th width="200">省份</th>
+                                                        <th width="200">城市</th>
+                                                        <th width="200">街道</th>
+                                                        <th width="200">具体地址</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@Model.seller_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.name</td>
+                                                        <td>@Model.seller_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.tele_number</td>
+                                                        <td>@Model.seller_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.province</td>
+                                                        <td>@Model.seller_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.city</td>
+                                                        <td>@Model.seller_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.street</td>
+                                                        <td>@Model.seller_order.Where(c => c.order_id == order_id).First().bookOrder.receiving.street</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr />
+                                            <table id="wishlist-table" class="clean-table linearize-table data-table">
+                                                <thead>
+                                                    <tr class="first last">
+                                                        <th class="customer-wishlist-item-image"></th>
+                                                        <th class="customer-wishlist-item-info"></th>
+                                                        <th class="customer-wishlist-item-quantity">数量</th>
+                                                        <th class="customer-wishlist-item-price">单价</th>
+                                                        <th class="customer-wishlist-item-orderstate">订单状态</th>
+                                                        <th class="customer-wishlist-item-remove"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr class="first last">
+                                                        <td class="a-right last" colspan="50">
+                                                            @if (Model.seller_order.Where(c => c.order_id == order_id).First().state == "未确认支付")
+                                                            {
+                                                                <button class="button btn-continue" title="Continue Shopping" type="button"><a href="/order/ConfirmPay?order_id=@Model.seller_order.Where(c =>c.order_id == order_id).First().order_id">确认收款</a></button>
+                                                            }
+                                                            @if (Model.seller_order.Where(c => c.order_id == order_id).First().state == "退款中")
+                                                            {
+                                                                <button class="button btn-continue" title="Continue Shopping" type="button"><a href="/order/AgreeRefond?order_id=@Model.seller_order.Where(c => c.order_id == order_id).First().order_id">确认退款</a></button>
+                                                            }
+                                                            <button id="empty_cart_button" class="button btn-empty" title="Clear Cart" value="empty_cart" name="update_cart_action" type="submit"><a href="~/Product/Home">继续购物</a></button>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    @foreach (var item in Model.seller_order)
+                                                    {
+                                                        if (item.order_id == order_id)
+                                                        {
+
+
+                                                            <tr id="item_31" class="first odd">
+                                                                <td class="wishlist-cell0 customer-wishlist-item-image"><a title="Softwear Women's Designer" href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=" class="product-image"> <img width="150" alt="Softwear Women's Designer" src="@item.book.picture_url"> </a></td>
+                                                                <td class="wishlist-cell1 customer-wishlist-item-info">
+                                                                    <h3 class="product-name"><a title="Softwear Women's Designer" href="/Product/BookDetails?book_id=@item.book.book_id.ToString()&count=">@item.book.book_name</a></h3>
+                                                                    <div class="description std">
+                                                                        <div class="inner" style="width:300px;">@item.book.introduction</div>
+                                                                    </div>
+                                                                <td data-rwd-label="Quantity" class="wishlist-cell2 customer-wishlist-item-quantity">
+                                                                    <div class="cart-cell">
+                                                                        <div class="add-to-cart-alt">
+                                                                            @item.count
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td data-rwd-label="Price" class="wishlist-cell3 customer-wishlist-item-price">
+                                                                    <div class="cart-cell">
+                                                                        <div class="price-box" style="margin-top:0px;"><span class="price" style="margin-top:0px;">$@item.book.price</span></div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="wishlist-cell4 customer-wishlist-item-cart">
+                                                                    <div class="cart-cell">
+                                                                        <p style="margin-top:0px;">@item.state</p>
+
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                              
+                                        }
+
+
+                                    </div>
+                                </div>
+                                <div class="buttons-set">
+                                    <p class="back-link"><a href="~/User/dashboard"><small>« </small>返回我的账户</a></p>   <!--跳转到我的首页-->
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                    <aside class="col-right sidebar col-sm-3 wow bounceInUp animated" style="margin-top:0px;position:absolute;top:0px;right:0px;">
+                        <div class="block block-account">
+                            <div class="block-title">我的帐户</div>
+                            <div class="block-content">
+                                <ul>
+                                    <li><a href="~/User/dashboard">我的信息</a></li>
+                                    <li class="current"><a href="/order/myorder">我的订单</a></li>
+                                    <li><a href="/order/sold_goods">已发布的商品</a></li>
+                                    <li><a href="/Product/AddNewBook">发布商品</a></li>
+                                    <li><a href="~/User/aboutUs">关于我们</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

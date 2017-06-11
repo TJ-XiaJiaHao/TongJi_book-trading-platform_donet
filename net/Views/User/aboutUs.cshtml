@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "aboutUs";
+}
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="database project">
+    <meta name="author" content="Ivy_w">
+    <title>about us</title>
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/slider.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/style.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/style1.css" type="text/css">
+    <!-- JavaScript -->
+    <script type="text/javascript" src="/js/ACCOUNT/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/ACCOUNT/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/ACCOUNT/common.js"></script>
+    <script type="text/javascript" src="/js/ACCOUNT/slider.js"></script>
+    <script type="text/javascript" src="/js/ACCOUNT/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+        //]]>
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+</head>
+
+<body>
+    <!-- main-container -->
+    <div class="main-container col2-right-layout">
+        <div class="main container">
+            <div class="row">
+                <section class="col-main col-sm-9">
+                    <div class="my-account">
+                        <div class="page-title new_page_title">
+                            <h2>关于我们</h2>
+                        </div>
+                        <br>
+                        <p>我们的数据库的立意主要取自于我们的学习生活，因为我们希望用所学习的只是切实解决学习生活中遇到的现实问题。</p>
+                        <br>
+                        <p>在学习生活中，我们可以发现，有一些教科书在使用之后便鲜有用武之地，反而占据着本就不大的宿舍很大的空间，而新买教科书有会有很大的花费，另外，有一些课外书在使用过后，我们已经掌握了里面的知识，但是书还很新，丢了或者闲置就十分可惜。</p>
+                        <br>
+                        <p>往往在大学里，同一个专业或者相近的兄弟专业每一届的教科书都大部分相同，需要学习的技能也有很大的相似。由此，我们想到，如果有一种简单易行的方法，可以让我们能够将使用过的教科书，闲置的课外书等交给下一届的学弟学妹们使用，并且可以从往届的学长学姐们那里获得自己需要的书籍，那会是一件大有裨益的事情。</p>
+                        <br>
+                        <p>随着市场经济的发展和人们生活水平的提高，二手书的市场是一个环保和低成本看书的选择，在学校里，二手书商店就带给同学们一个供需平台，但是，对于二手书籍的管理和销售，普通的旧书市场不能有效的进行，而随着Internet的普及，网上购买商品或获取信息已成为现代人的一种生活习惯。而上网更是大学生活不可或缺的一部分，所以一个独立的能够满足用户需求的校园二手图书交易网站的设计与开发是十分有必要也是可行的。</p>
+                        <br>
+                        <p>我们的网站是一个基于校园的二手书交易平台。每个用户既能作为卖家出售自己不需要的二手书，（以我们自身为例，由于专业的特殊性，我们往往需要购买200+的原版书以及中文影印版作为参考，而在课程结束后，其中一本的意义就不那么明显了，可以通过转卖减少学生的经济压力），又可以作为买家，通过我们网站搜索购买需要的书籍。</p>
+                        <br>
+                        <p>而将不字，删去一点正是为了强调我们并不是B2C电商，而是一个C2C的二手交易平台。将卖字上的“十”字提出，也正是为了清晰地向大家展示我们平台既能购买也能销售的特性。</p>
+                        <br>
+                        <p>为了更好地服务广大的学生用户，我们的服务主要迎合学生的需求。同时可操作性强，十分注重用户友好。与淘宝这类B2C电商不同，发布商品并不需要通过店铺，也就是说，你不需要向管理员递交新开一个店铺的申请，不需要等待审核。在你注册本网站账号的同时，你就已经拥有了买东西和卖东西的权限。由此，学生不再需要花费高额金额购买专业书籍，二手书交易平台能给所有学生带来便捷的购书体验。</p>
+                        <br>
+                        <p>不，买（卖）书，让所有的学生感受便捷的购书体验!</p><br>
+                    </div>
+                </section>
+                <aside class="col-right sidebar col-sm-3 wow bounceInUp animated">
+                    <div class="block block-account">
+                        <div class="block-title">我的帐户</div>
+                        <div class="block-content">
+                            <ul>
+                                <li class="current"><a>我的信息</a></li>
+                                <li><a href="myorder.html">我的订单</a></li>
+                                <li><a href="sold_goods.html">已发布的商品</a></li>
+                                <li><a href="purchased_goods.html">已购买的商品</a></li>
+                                <li><a href="submit_goods.html">发布商品</a></li>
+                                <li><a href="＃">关于我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <!--End main-container -->
+</body>
+</html>
+
+

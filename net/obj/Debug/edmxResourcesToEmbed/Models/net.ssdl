@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="netHWModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="attention">
+    <Key>
+      <PropertyRef Name="pre_account" />
+      <PropertyRef Name="la_account" />
+    </Key>
+    <Property Name="pre_account" Type="int" Nullable="false" />
+    <Property Name="la_account" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="book">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="int" Nullable="false" />
+    <Property Name="type_id" Type="int" />
+    <Property Name="account" Type="int" Nullable="false" />
+    <Property Name="picture_url" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="state" Type="varchar" MaxLength="10" />
+    <Property Name="introduction" Type="varchar" MaxLength="200" />
+    <Property Name="count" Type="int" />
+    <Property Name="province" Type="varchar" MaxLength="20" />
+    <Property Name="book_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="author" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="book_edition" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="book_cart">
+    <Key>
+      <PropertyRef Name="cart_id" />
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="cart_id" Type="int" Nullable="false" />
+    <Property Name="book_id" Type="int" Nullable="false" />
+    <Property Name="count" Type="int" />
+  </EntityType>
+  <EntityType Name="book_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book_id" Type="int" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="10" />
+    <Property Name="count" Type="int" />
+  </EntityType>
+  <EntityType Name="bookComment">
+    <Key>
+      <PropertyRef Name="comment_id" />
+    </Key>
+    <Property Name="comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account" Type="int" Nullable="false" />
+    <Property Name="book_id" Type="int" Nullable="false" />
+    <Property Name="content" Type="varchar" MaxLength="200" />
+    <Property Name="comment_date" Type="date" />
+  </EntityType>
+  <EntityType Name="bookDetail">
+    <Key>
+      <PropertyRef Name="book_name" />
+      <PropertyRef Name="author" />
+      <PropertyRef Name="book_edition" />
+    </Key>
+    <Property Name="book_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="author" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="book_edition" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pulisher" Type="varchar" MaxLength="20" />
+    <Property Name="publish_date" Type="date" />
+    <Property Name="price" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="count" Type="int" />
+  </EntityType>
+  <EntityType Name="bookOrder">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" Nullable="false" />
+    <Property Name="buyer" Type="int" />
+    <Property Name="seller" Type="int" />
+    <Property Name="state" Type="varchar" MaxLength="10" />
+    <Property Name="create_date" Type="date" />
+    <Property Name="price" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="rece_id" Type="int" />
+  </EntityType>
+  <EntityType Name="bookType">
+    <Key>
+      <PropertyRef Name="type_id" />
+    </Key>
+    <Property Name="type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type_name" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="receiving">
+    <Key>
+      <PropertyRef Name="rece_id" />
+    </Key>
+    <Property Name="rece_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tele_number" Type="int" Nullable="false" />
+    <Property Name="province" Type="varchar" MaxLength="15" />
+    <Property Name="city" Type="varchar" MaxLength="15" />
+    <Property Name="street" Type="varchar" MaxLength="15" />
+    <Property Name="address" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="shoppingCart">
+    <Key>
+      <PropertyRef Name="cart_id" />
+    </Key>
+    <Property Name="cart_id" Type="int" Nullable="false" />
+    <Property Name="account" Type="int" />
+    <Property Name="total_price" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="total_quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="user_userRole">
+    <Key>
+      <PropertyRef Name="account" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="account" Type="int" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userRole">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="account" />
+    </Key>
+    <Property Name="account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="nickname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="tele_phone" Type="varchar" MaxLength="11" />
+    <Property Name="name" Type="varchar" MaxLength="15" />
+    <Property Name="sex" Type="varchar" MaxLength="2" />
+    <Property Name="picture_url" Type="varchar" MaxLength="50" />
+    <Property Name="rece_id" Type="int" />
+  </EntityType>
+  <Association Name="attention_ibfk_1">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="attention" Type="Self.attention" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="attention">
+        <PropertyRef Name="pre_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="attention_ibfk_2">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="attention" Type="Self.attention" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="attention">
+        <PropertyRef Name="la_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_cart_ibfk_1">
+    <End Role="shoppingCart" Type="Self.shoppingCart" Multiplicity="1" />
+    <End Role="book_cart" Type="Self.book_cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shoppingCart">
+        <PropertyRef Name="cart_id" />
+      </Principal>
+      <Dependent Role="book_cart">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_cart_ibfk_2">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="book_cart" Type="Self.book_cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="book_cart">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_ibfk_1">
+    <End Role="bookType" Type="Self.bookType" Multiplicity="0..1" />
+    <End Role="book" Type="Self.book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bookType">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="book">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_ibfk_2">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="book" Type="Self.book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="book">
+        <PropertyRef Name="account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_ibfk_3">
+    <End Role="bookDetail" Type="Self.bookDetail" Multiplicity="0..1" />
+    <End Role="book" Type="Self.book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bookDetail">
+        <PropertyRef Name="book_name" />
+        <PropertyRef Name="author" />
+        <PropertyRef Name="book_edition" />
+      </Principal>
+      <Dependent Role="book">
+        <PropertyRef Name="book_name" />
+        <PropertyRef Name="author" />
+        <PropertyRef Name="book_edition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_order_ibfk_1">
+    <End Role="bookOrder" Type="Self.bookOrder" Multiplicity="1" />
+    <End Role="book_order" Type="Self.book_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bookOrder">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="book_order">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="book_order_ibfk_2">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="book_order" Type="Self.book_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="book_order">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bookComment_ibfk_1">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="bookComment" Type="Self.bookComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="bookComment">
+        <PropertyRef Name="account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bookComment_ibfk_2">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="bookComment" Type="Self.bookComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="bookComment">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bookOrder_ibfk_1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="bookOrder" Type="Self.bookOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="bookOrder">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bookOrder_ibfk_2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="bookOrder" Type="Self.bookOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="bookOrder">
+        <PropertyRef Name="seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bookOrder_ibfk_3">
+    <End Role="receiving" Type="Self.receiving" Multiplicity="0..1" />
+    <End Role="bookOrder" Type="Self.bookOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receiving">
+        <PropertyRef Name="rece_id" />
+      </Principal>
+      <Dependent Role="bookOrder">
+        <PropertyRef Name="rece_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="shoppingCart_ibfk_1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="shoppingCart" Type="Self.shoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="shoppingCart">
+        <PropertyRef Name="account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_userRole_ibfk_1">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="user_userRole" Type="Self.user_userRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="account" />
+      </Principal>
+      <Dependent Role="user_userRole">
+        <PropertyRef Name="account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_userRole_ibfk_2">
+    <End Role="userRole" Type="Self.userRole" Multiplicity="1" />
+    <End Role="user_userRole" Type="Self.user_userRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userRole">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="user_userRole">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_ibfk_1">
+    <End Role="receiving" Type="Self.receiving" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receiving">
+        <PropertyRef Name="rece_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="rece_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="netHWModelStoreContainer">
+    <EntitySet Name="attention" EntityType="Self.attention" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="book" EntityType="Self.book" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="book_cart" EntityType="Self.book_cart" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="book_order" EntityType="Self.book_order" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="bookComment" EntityType="Self.bookComment" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="bookDetail" EntityType="Self.bookDetail" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="bookOrder" EntityType="Self.bookOrder" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="bookType" EntityType="Self.bookType" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="receiving" EntityType="Self.receiving" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="shoppingCart" EntityType="Self.shoppingCart" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="user_userRole" EntityType="Self.user_userRole" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="userRole" EntityType="Self.userRole" Schema="netHW" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="netHW" store:Type="Tables" />
+    <AssociationSet Name="attention_ibfk_1" Association="Self.attention_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="attention" EntitySet="attention" />
+    </AssociationSet>
+    <AssociationSet Name="attention_ibfk_2" Association="Self.attention_ibfk_2">
+      <End Role="users" EntitySet="users" />
+      <End Role="attention" EntitySet="attention" />
+    </AssociationSet>
+    <AssociationSet Name="book_cart_ibfk_1" Association="Self.book_cart_ibfk_1">
+      <End Role="shoppingCart" EntitySet="shoppingCart" />
+      <End Role="book_cart" EntitySet="book_cart" />
+    </AssociationSet>
+    <AssociationSet Name="book_cart_ibfk_2" Association="Self.book_cart_ibfk_2">
+      <End Role="book" EntitySet="book" />
+      <End Role="book_cart" EntitySet="book_cart" />
+    </AssociationSet>
+    <AssociationSet Name="book_ibfk_1" Association="Self.book_ibfk_1">
+      <End Role="bookType" EntitySet="bookType" />
+      <End Role="book" EntitySet="book" />
+    </AssociationSet>
+    <AssociationSet Name="book_ibfk_2" Association="Self.book_ibfk_2">
+      <End Role="users" EntitySet="users" />
+      <End Role="book" EntitySet="book" />
+    </AssociationSet>
+    <AssociationSet Name="book_ibfk_3" Association="Self.book_ibfk_3">
+      <End Role="bookDetail" EntitySet="bookDetail" />
+      <End Role="book" EntitySet="book" />
+    </AssociationSet>
+    <AssociationSet Name="book_order_ibfk_1" Association="Self.book_order_ibfk_1">
+      <End Role="bookOrder" EntitySet="bookOrder" />
+      <End Role="book_order" EntitySet="book_order" />
+    </AssociationSet>
+    <AssociationSet Name="book_order_ibfk_2" Association="Self.book_order_ibfk_2">
+      <End Role="book" EntitySet="book" />
+      <End Role="book_order" EntitySet="book_order" />
+    </AssociationSet>
+    <AssociationSet Name="bookComment_ibfk_1" Association="Self.bookComment_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="bookComment" EntitySet="bookComment" />
+    </AssociationSet>
+    <AssociationSet Name="bookComment_ibfk_2" Association="Self.bookComment_ibfk_2">
+      <End Role="book" EntitySet="book" />
+      <End Role="bookComment" EntitySet="bookComment" />
+    </AssociationSet>
+    <AssociationSet Name="bookOrder_ibfk_1" Association="Self.bookOrder_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="bookOrder" EntitySet="bookOrder" />
+    </AssociationSet>
+    <AssociationSet Name="bookOrder_ibfk_2" Association="Self.bookOrder_ibfk_2">
+      <End Role="users" EntitySet="users" />
+      <End Role="bookOrder" EntitySet="bookOrder" />
+    </AssociationSet>
+    <AssociationSet Name="bookOrder_ibfk_3" Association="Self.bookOrder_ibfk_3">
+      <End Role="receiving" EntitySet="receiving" />
+      <End Role="bookOrder" EntitySet="bookOrder" />
+    </AssociationSet>
+    <AssociationSet Name="shoppingCart_ibfk_1" Association="Self.shoppingCart_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="shoppingCart" EntitySet="shoppingCart" />
+    </AssociationSet>
+    <AssociationSet Name="user_userRole_ibfk_1" Association="Self.user_userRole_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_userRole" EntitySet="user_userRole" />
+    </AssociationSet>
+    <AssociationSet Name="user_userRole_ibfk_2" Association="Self.user_userRole_ibfk_2">
+      <End Role="userRole" EntitySet="userRole" />
+      <End Role="user_userRole" EntitySet="user_userRole" />
+    </AssociationSet>
+    <AssociationSet Name="users_ibfk_1" Association="Self.users_ibfk_1">
+      <End Role="receiving" EntitySet="receiving" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

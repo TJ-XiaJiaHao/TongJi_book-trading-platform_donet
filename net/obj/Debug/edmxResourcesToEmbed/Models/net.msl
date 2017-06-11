@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="netHWModelStoreContainer" CdmEntityContainer="netHWEntities">
+    <EntitySetMapping Name="book">
+      <EntityTypeMapping TypeName="netHWModel.book">
+        <MappingFragment StoreEntitySet="book">
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="picture_url" ColumnName="picture_url" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="introduction" ColumnName="introduction" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="book_edition" ColumnName="book_edition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book_cart">
+      <EntityTypeMapping TypeName="netHWModel.book_cart">
+        <MappingFragment StoreEntitySet="book_cart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book_order">
+      <EntityTypeMapping TypeName="netHWModel.book_order">
+        <MappingFragment StoreEntitySet="book_order">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookComment">
+      <EntityTypeMapping TypeName="netHWModel.bookComment">
+        <MappingFragment StoreEntitySet="bookComment">
+          <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="comment_date" ColumnName="comment_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookDetail">
+      <EntityTypeMapping TypeName="netHWModel.bookDetail">
+        <MappingFragment StoreEntitySet="bookDetail">
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="book_edition" ColumnName="book_edition" />
+          <ScalarProperty Name="pulisher" ColumnName="pulisher" />
+          <ScalarProperty Name="publish_date" ColumnName="publish_date" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookOrder">
+      <EntityTypeMapping TypeName="netHWModel.bookOrder">
+        <MappingFragment StoreEntitySet="bookOrder">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="buyer" ColumnName="buyer" />
+          <ScalarProperty Name="seller" ColumnName="seller" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="rece_id" ColumnName="rece_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookType">
+      <EntityTypeMapping TypeName="netHWModel.bookType">
+        <MappingFragment StoreEntitySet="bookType">
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receiving">
+      <EntityTypeMapping TypeName="netHWModel.receiving">
+        <MappingFragment StoreEntitySet="receiving">
+          <ScalarProperty Name="rece_id" ColumnName="rece_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="tele_number" ColumnName="tele_number" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shoppingCart">
+      <EntityTypeMapping TypeName="netHWModel.shoppingCart">
+        <MappingFragment StoreEntitySet="shoppingCart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="total_quantity" ColumnName="total_quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userRole">
+      <EntityTypeMapping TypeName="netHWModel.userRole">
+        <MappingFragment StoreEntitySet="userRole">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="netHWModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tele_phone" ColumnName="tele_phone" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="picture_url" ColumnName="picture_url" />
+          <ScalarProperty Name="rece_id" ColumnName="rece_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="attention" TypeName="netHWModel.attention" StoreEntitySet="attention">
+      <EndProperty Name="users">
+        <ScalarProperty Name="account" ColumnName="pre_account" />
+      </EndProperty>
+      <EndProperty Name="users1">
+        <ScalarProperty Name="account" ColumnName="la_account" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_userRole" TypeName="netHWModel.user_userRole" StoreEntitySet="user_userRole">
+      <EndProperty Name="users">
+        <ScalarProperty Name="account" ColumnName="account" />
+      </EndProperty>
+      <EndProperty Name="userRole">
+        <ScalarProperty Name="role_id" ColumnName="role_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
