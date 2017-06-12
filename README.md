@@ -24,3 +24,4 @@
 |2|验证码生成|RandomCode.dll|DLL.RandomCode|c#|私有程序集|-|
 |3|加密|EntryptAndDetrypt.dll|DLL.EntryptAndDetrypt|c#|私有程序集|-|
 |4|上传图片|UploadFile.dll|DLL.UploadFile|c#|私有程序集|-|
+|5|格式验证|Verify.dll|DLL.Verify|c#|私有程序集|-|
