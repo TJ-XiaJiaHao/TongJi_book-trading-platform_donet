@@ -59,8 +59,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="RandomCode">
-      <HintPath>..\lib\RandomCode.dll</HintPath>
+    <Reference Include="RandomCode, Version=0.0.0.0, Culture=neutral, PublicKeyToken=19398c337eff97ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\RandomCode\v4.0_0.0.0.0__19398c337eff97ac\RandomCode.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
