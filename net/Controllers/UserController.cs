@@ -10,12 +10,14 @@ using System.IO;
 using net.BusinessLayer;
 using DLL.EmailService;
 using DLL.UploadFile;
+using DLL.Verify;
 
 namespace net.Controllers
 {
     public class UserController : Controller
     {
         private netHWEntities db = new netHWEntities();
+        private Verify verify = new Verify();
         // GET: User
         [loginFilter]
         public ActionResult Index()
@@ -33,6 +35,11 @@ namespace net.Controllers
         {
             string email = fc["login[username]"] as string;
             if (email == null) return Content("email is null");
+            if (!verify.IsEmail(email))
+            {
+                ViewData["error"] = "邮箱格式不正确！";
+                return View("Login");
+            }
             string password = fc["login[password]"] as string;
             if (password == null) return Content("password is null");
 
@@ -82,6 +89,16 @@ namespace net.Controllers
                 user.email = form.email;
                 user.tele_phone = form.phone;
                 string password = form.password;
+                if (!verify.IsHandset(form.phone))
+                {
+                    ViewData["error"] = "phone number is not right";
+                    return View("Regist");
+                }
+                if (!verify.IsEmail(form.email))
+                {
+                    ViewData["error"] = "email is not right";
+                    return View("Regist");
+                }
 
                 if (AccountService.regist_verify(user, password, db)) return View("Verify");
                 else

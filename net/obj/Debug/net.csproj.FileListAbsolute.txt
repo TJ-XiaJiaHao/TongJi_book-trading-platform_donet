@@ -233,3 +233,4 @@ C:\Users\Administrator\Desktop\net\net\net\net\bin\EmailService.dll
 C:\Users\Administrator\Desktop\net\net\net\net\bin\RandomCode.dll
 C:\Users\Administrator\Desktop\net\net\net\net\bin\EncryptAndDecrypt.dll
 C:\Users\Administrator\Desktop\net\net\net\net\bin\UploadFile.dll
+C:\Users\Administrator\Desktop\net\net\net\net\bin\Verify.dll

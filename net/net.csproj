@@ -121,6 +121,9 @@
     <Reference Include="UploadFile">
       <HintPath>..\lib\UploadFile.dll</HintPath>
     </Reference>
+    <Reference Include="Verify">
+      <HintPath>..\lib\Verify.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
