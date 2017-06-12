@@ -9,11 +9,14 @@ using System.IO;
 using DLL.EmailService;
 using DLL.RandomCode;
 using DLL.EncryptAndDecrypt;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace net.BusinessLayer
 {
     public class AccountService
     {
+
         private AccountService() { }
         public static bool regist_verify(users user, string password, netHWEntities db)
         {

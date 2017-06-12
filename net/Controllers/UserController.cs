@@ -11,11 +11,17 @@ using net.BusinessLayer;
 using DLL.EmailService;
 using DLL.UploadFile;
 using DLL.Verify;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace net.Controllers
 {
     public class UserController : Controller
     {
+        [DllImport("CppDLL.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.I1)]
+        public extern static bool IsEmail(byte[] email);
+
         private netHWEntities db = new netHWEntities();
         private Verify verify = new Verify();
         // GET: User
@@ -35,7 +41,10 @@ namespace net.Controllers
         {
             string email = fc["login[username]"] as string;
             if (email == null) return Content("email is null");
-            if (!verify.IsEmail(email))
+            string a = System.Environment.CurrentDirectory;
+            //bool isemail = IsEmail(Encoding.ASCII.GetBytes("15068206281"));
+            //if (!verify.IsEmail(email))
+            if(!IsEmail(Encoding.ASCII.GetBytes(email)))
             {
                 ViewData["error"] = "邮箱格式不正确！";
                 return View("Login");
@@ -94,7 +103,8 @@ namespace net.Controllers
                     ViewData["error"] = "phone number is not right";
                     return View("Regist");
                 }
-                if (!verify.IsEmail(form.email))
+                //if (!verify.IsEmail(form.email))
+                if(!IsEmail(Encoding.ASCII.GetBytes(form.email)))
                 {
                     ViewData["error"] = "email is not right";
                     return View("Regist");
