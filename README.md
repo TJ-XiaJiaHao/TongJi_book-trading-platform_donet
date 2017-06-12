@@ -20,8 +20,14 @@
   
 |ID|功能|文件名|命名空间|编写语言|程序集类型|备注|
 |---|---|---|----|---|---|---|
-|1|邮箱验证|EmailService.dll|DLL.EmailService|c#|私有程序集|需要在web.config中配置信息|
-|2|验证码生成|RandomCode.dll|DLL.RandomCode|c#|私有程序集|-|
+|1|邮箱验证|EmailService.dll|DLL.EmailService|c#|私有程序集|需要在web.config中配置|
+|2|验证码生成|RandomCode.dll|DLL.RandomCode|c#|共享程序集|-|
 |3|加密|EntryptAndDetrypt.dll|DLL.EntryptAndDetrypt|c#|私有程序集|-|
 |4|上传图片|UploadFile.dll|DLL.UploadFile|c#|私有程序集|-|
 |5|格式验证|Verify.dll|DLL.Verify|c#|私有程序集|-|
+  
+  4.1 共享程序集RandomCode生成过程  
+![Alt text](https://github.com/justPlay197/NET/blob/master/images/%E6%B7%BB%E5%8A%A0%E5%85%B1%E4%BA%AB%E7%A8%8B%E5%BA%8F%E9%9B%86.png?raw=true)  
+
+  4.2 共享程序集RandomCode调用情况说明，可以看出这是一个共享程序集
+![Alt text](https://github.com/justPlay197/NET/blob/master/images/%E5%85%B1%E4%BA%AB%E7%A8%8B%E5%BA%8F%E9%9B%86RandomCode.png?raw=true)
