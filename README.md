@@ -67,3 +67,15 @@ unsafe
     错误类型3:运行正常，但返回的结果永远是true，明显应该返回false的情况也返回true
     问题原因3:非托管代码数据传输问题
     解决办法3:在dllimport和函数声明中间加一句[return:MarshalAs(UnmanagedType.I1)]
+#### **7、项目启动问题**
+    问题描述：无法启动计算机'.'上的服务W3SVC（IIS无法开启）
+      
+      尝试1 ：启动服务W3SCV，报错依赖服务或组无法启动
+      尝试2 ：查看依赖服务，发现HTTP服务没有开启，开启HTTP服务报错无法启动HTTP
+      尝试3 ：直接修改注册表，然后重启，成功
+        
+      3.1：win + R，运行命令regedit打开注册表编辑器
+      3.2：进入路径： &\SYSTEM\CurrentControlSet\Services\HTTP]:
+      3.3：修改start的状态从4变为3
+      3.4：重启，重新加载注册表
+![Alt text](https://github.com/justPlay197/NET/blob/master/images/%E5%BC%80%E5%90%AFHTTP%E6%9C%8D%E5%8A%A1.png?raw=true)  
