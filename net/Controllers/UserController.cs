@@ -10,20 +10,48 @@ using System.IO;
 using net.BusinessLayer;
 using DLL.EmailService;
 using DLL.UploadFile;
-using DLL.Verify;
+//using DLL.Verify; //原有的程序集
 using System.Runtime.InteropServices;
 using System.Text;
+using CLRDLL;
 
 namespace net.Controllers
 {
     public class UserController : Controller
     {
-        [DllImport("CppDLL.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.I1)]
-        public extern static bool IsEmail(byte[] email);
+        //[DllImport("CppDLL.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+        //[return: MarshalAs(UnmanagedType.I1)]
+        //public extern static bool IsEmail(byte[] email);
 
         private netHWEntities db = new netHWEntities();
         private Verify verify = new Verify();
+        private bool isEamil(string email)
+        {
+            unsafe
+            {
+                byte[] bb = Encoding.Default.GetBytes(email);
+                sbyte[] sbb = new sbyte[bb.Length];
+                Buffer.BlockCopy(bb, 0, sbb, 0, bb.Length);
+                fixed (sbyte* sb = sbb)
+                {
+                    return verify.IsEmail(sb);
+                }
+            }
+        }
+        private bool isHandset(string phone)
+        {
+            unsafe
+            {
+                byte[] bb = Encoding.Default.GetBytes(phone);
+                sbyte[] sbb = new sbyte[bb.Length];
+                Buffer.BlockCopy(bb, 0, sbb, 0, bb.Length);
+                fixed (sbyte* sb = sbb)
+                {
+                    return verify.IsHandset(sb);
+                }
+            }
+
+        }
         // GET: User
         [loginFilter]
         public ActionResult Index()
@@ -44,7 +72,7 @@ namespace net.Controllers
             string a = System.Environment.CurrentDirectory;
             //bool isemail = IsEmail(Encoding.ASCII.GetBytes("15068206281"));
             //if (!verify.IsEmail(email))
-            if(!IsEmail(Encoding.ASCII.GetBytes(email)))
+            if(!isEamil(email))
             {
                 ViewData["error"] = "邮箱格式不正确！";
                 return View("Login");
@@ -98,13 +126,13 @@ namespace net.Controllers
                 user.email = form.email;
                 user.tele_phone = form.phone;
                 string password = form.password;
-                if (!verify.IsHandset(form.phone))
+                if (!isHandset(form.phone))
                 {
                     ViewData["error"] = "phone number is not right";
                     return View("Regist");
                 }
                 //if (!verify.IsEmail(form.email))
-                if(!IsEmail(Encoding.ASCII.GetBytes(form.email)))
+                if(!isEamil(form.email))
                 {
                     ViewData["error"] = "email is not right";
                     return View("Regist");
