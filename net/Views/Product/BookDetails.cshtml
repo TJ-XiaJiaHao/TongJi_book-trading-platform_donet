@@ -83,7 +83,7 @@
                                                         </button>
                                                     </div>
                                                 </div>
-<!---->                                                <button  onclick="var result = document.getElementById('qty'); var qty = result.value;window.location.href='/Product/BookDetails?book_id=@ViewBag.book_id&count='+qty;alert('添加成功，请到购物车界面结算！\n书名：@Model.book.book_name\n数量：'+qty+'\n总价：'+(@Model.book.price*qty));" class="button btn-cart" title="Add to Cart" type="button">
+<!---->                                                <button  onclick="var result = document.getElementById('qty'); var qty = result.value; window.location.href='/Product/BookDetails?book_id=@ViewBag.book_id&count='+qty;var xml = new ActiveXObject('MSGBUS.GETMSG'); toastr.success(xml.getMsg(00002));" class="button btn-cart" title="Add to Cart" type="button">
                                                     <span><i class="icon-basket"></i> 加入购物车</span>
                                                 </button>
                                             </div>

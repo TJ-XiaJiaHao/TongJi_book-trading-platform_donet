@@ -14,6 +14,7 @@ using DLL.UploadFile;
 using System.Runtime.InteropServices;
 using System.Text;
 using CLRDLL;
+using MSGBUSLib;
 
 namespace net.Controllers
 {
@@ -25,6 +26,7 @@ namespace net.Controllers
 
         private netHWEntities db = new netHWEntities();
         private Verify verify = new Verify();
+        private MSGBUS msgBus = new MSGBUS();
         private bool isEamil(string email)
         {
             unsafe
@@ -74,7 +76,7 @@ namespace net.Controllers
             //if (!verify.IsEmail(email))
             if(!isEamil(email))
             {
-                ViewData["error"] = "邮箱格式不正确！";
+                ViewData["error"] =  msgBus.getMsg(10001);//"邮箱格式不正确！";
                 return View("Login");
             }
             string password = fc["login[password]"] as string;
@@ -87,7 +89,7 @@ namespace net.Controllers
                 else return Redirect("../Product/Home");
             }
 
-            ViewData["error"] = "invalidate name or password";
+            ViewData["error"] = msgBus.getMsg(10002); //"invalidate name or password";
             return View("Login");
         }
 
@@ -128,26 +130,26 @@ namespace net.Controllers
                 string password = form.password;
                 if (!isHandset(form.phone))
                 {
-                    ViewData["error"] = "phone number is not right";
+                    ViewData["error"] = msgBus.getMsg(10003);// "phone number is not right";
                     return View("Regist");
                 }
                 //if (!verify.IsEmail(form.email))
                 if(!isEamil(form.email))
                 {
-                    ViewData["error"] = "email is not right";
+                    ViewData["error"] = msgBus.getMsg(10004); //"email is not right";
                     return View("Regist");
                 }
 
                 if (AccountService.regist_verify(user, password, db)) return View("Verify");
                 else
                 {
-                    ViewData["error"] = "name or email repeated";
+                    ViewData["error"] = msgBus.getMsg(10005); //"name or email repeated";
                     return View("Regist");
                 }
             }
             else
             {
-                ViewData["error"] = "input invalidate";
+                ViewData["error"] = msgBus.getMsg(10006); //"input invalidate";
                 return View("Regist");
             }
         }

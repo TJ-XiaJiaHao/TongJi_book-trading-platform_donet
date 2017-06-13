@@ -144,7 +144,7 @@
                                     <p class="require"><em class="required">* </em>必须填写内容</p>
                                     <input type="text" name="hideit" value="" style="display:none !important;">
                                     <div class="buttons-set">
-                                        <button type="submit" title="Submit" class="button submit" id="addBookInfo"> <span id="addBookInfo" onclick="alert('书本添加成功!');"> 提交 </span> </button>
+                                        <button type="submit" title="Submit" class="button submit" id="addBookInfo"> <span id="addBookInfo" onclick="var xml = new ActiveXObject('MSGBUS.GETMSG');toastr.success(xml.getMsg(00001));"> 提交 </span> </button>
                                     </div>
                                 </li>
                             </ul>

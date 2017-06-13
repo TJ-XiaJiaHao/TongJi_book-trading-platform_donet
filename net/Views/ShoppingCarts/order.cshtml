@@ -38,7 +38,9 @@
     </script>
     <script>
         function paySuccess() {
-            alert("支付成功，等待卖家确认");
+            var xml = new ActiveXObject('MSGBUS.GETMSG');
+            toastr.success(xml.getMsg(00003));
+            //alert("支付成功，等待卖家确认");
         }
 
     </script>
