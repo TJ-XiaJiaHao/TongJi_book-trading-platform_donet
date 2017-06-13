@@ -26,6 +26,8 @@
 |4|上传图片|UploadFile.dll|DLL.UploadFile|c#|私有程序集|-|
 |5|格式验证|Verify.dll|DLL.Verify|c#|私有程序集|-|
 |6|格式验证|CLRDLL.dll|CLRDLL|c++/CLI|私有程序集|-|
+|7|格式验证|CppDLL.dll|-|c++win32DLL|动态链接库|DLL要放到运行环境|
+|8|硬编码|MSGBUS.dll|-|ATLCOM|COM组件|js和c#都有调用|
 
 #### **4、共享程序集RandomCode说明**
 1. 生成命令  
@@ -79,3 +81,15 @@ unsafe
       3.3：修改start的状态从4变为3
       3.4：重启，重新加载注册表
 ![Alt text](https://github.com/justPlay197/NET/blob/master/images/%E5%BC%80%E5%90%AFHTTP%E6%9C%8D%E5%8A%A1.png?raw=true)  
+
+#### **8、COM组件注册和调用问题**
+    错误类型1：ATL项目直接运行报错，报错为unable to start pargram...
+    解决办法1：以管理员的身份打开cmd，利用regsvr32命令注册COM组件
+    
+    错误类型2：csharp创建COM实例时报错 “无法嵌入互操作类型，请改用适当的接口”
+    解决办法2：右键添加的COM组件，选择属性，修改嵌入式操作类型为false
+    
+    错误类型3：JS调用COM组件没有反应
+    尝试解决3：改用IE打开项目，仍然没有反应
+    解决办法3：修改IE安全级别，允许ActiveX控件
+    
