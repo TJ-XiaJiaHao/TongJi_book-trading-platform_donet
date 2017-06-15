@@ -1,0 +1,115 @@
+﻿@model IEnumerable<net.Models.book>
+@{
+    ViewBag.Title = "sold_goods";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>已发布的书本 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS Style -->
+
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/style.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/font-awesome.css" type="text/css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/SHOPPING_CART/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/common.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/slider.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/owl.carousel.min.js"></script>
+        <script type="text/javascript">
+
+            jQuery(function () {
+                jQuery(".slideshow").cycle({
+                    fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                    prev: '#home-slides-prev',
+                    next: '#home-slides-next'
+                });
+            });
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+</head>
+<body>
+    <div class="main-container col2-right-layout">
+        <div class="main container">
+            <div class="row">
+                <section class="col-main col-sm-9 wow">
+                    <div class="cart">
+                        <div class="page-title">
+                            <h2>已发布的商品</h2>
+                        </div>
+                        <div class="table-responsive">
+                            
+                                    <table class="data-table cart-table" id="shopping-cart-table">
+
+                                        <thead>
+                                            <tr class="first last">
+                                                <th rowspan="1">&nbsp;</th>
+                                                <th rowspan="1"><span class="nobr">书籍名称</span></th>
+                                                <th colspan="1" class="a-center"><span class="nobr">单价</span></th>
+                                                <th class="a-center" rowspan="1">数量</th>
+                                                <th colspan="1" class="a-center">总价</th>
+                                                <th rowspan="1"></th>
+                                                <th class="a-center" rowspan="1">&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr class="first last">
+                                                <td class="a-right last" colspan="50">
+                                                    <button class="button btn-continue" title="Continue Shopping" type="button"<span><span><a href="/Product/AddNewBook">继续发布</a></span></span></button>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tbody>
+                                                <form method="post" action="/order/ChangeBookLastCount">
+                                                    <fieldset>
+                                                        <tr class="first odd">
+                                                            <td class="image"><a class="product-image" title="Sample Product" href="/Product/BookDetails?book_id=@item.book_id.ToString()&count="><img width="75" alt="Sample Product" src="@item.picture_url"></a></td>
+                                                            <td><h2 class="product-name"> <a href="/Product/BookDetails?book_id=@item.book_id.ToString()&count=">@item.book_name</a> </h2></td>
+                                                            <td class="a-center movewishlist"><input maxlength="15" class="input-text qty1" title="Qty1" size="5" value="@item.price" name="price"></td>
+                                                            <td class="a-right movewishlist">
+                                                                <button onclick="var result = document.getElementById('qty_@item.book_id'); var qty = result.value; if( !isNaN( qty )) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
+                                                                <input type="text" class="input-text qty" title="Qty" value="@item.count " maxlength="12" id="qty_@item.book_id" name="count">
+                                                                <button onclick="var result = document.getElementById('qty_@item.book_id'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
+                                                            </td>
+                                                            <td class="a-right movewishlist"><span class="cart-price"> <span class="price">$@(item.price * item.count)</span> </span></td>
+                                                            <td><input type="text" class="input-text qty" title="Qty" value="@item.book_id" maxlength="12" id="qty" name="book_id" style="visibility:hidden;"></td>
+                                                            <td class="a-center"><button title="Edit item parameters" class="edit-bnt" type="submit"></button></td>
+                                                        </tr>
+                                                    </fieldset>
+                                                </form>
+                                            </tbody>
+                                        }
+                                    </table>
+
+                        </div>
+                    </div>
+                </section>
+                <aside class="col-right sidebar col-sm-3 wow bounceInUp animated">
+                    <div class="block block-account">
+                        <div class="block-title">我的帐户</div>
+                        <div class="block-content">
+                            <ul>
+                                <li><a href="~/User/dashboard">我的信息</a></li>
+                                <li ><a href="/order/myorder">我的订单</a></li>
+                                <li class="current"><a href="/order/sold_goods">已发布的商品</a></li>
+                                <li><a href="/Product/AddNewBook">发布商品</a></li>
+                                <li><a href="~/User/aboutUs">关于我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+</body>
+</html>

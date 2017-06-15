@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cmn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="database project">
+    <meta name="author" content="Ivy_w">
+    <title>@ViewBag.Title</title>
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/ACCOUNT/style.css" type="text/css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/Home/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/Home/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/Home/common.js"></script>
+    <script type="text/javascript" src="~/js/Home/slider.js"></script>
+    <script type="text/javascript" src="~/js/Home/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/js/toastr.js"></script>
+
+    <!-- CSS Style -->
+    <link href="~/CSS/Home/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/slider.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/owl.theme.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/toastr.min.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 1100, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+        function display_alert() {
+            var name = document.getElementById("search").value;
+            var showContent = "您提交的内容为：\n";
+            showContent += name + "\n";
+
+            if (confirm(showContent)) {
+                //alert("提交");
+                return true;
+            } else {
+                //alert("返回");
+                return false;
+            }
+        }
+        //]]>
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-4 col-md-5">
+                        <!-- Logo -->
+                        <!-- logo 未定，待填入 -->
+                        <img alt="" src="/images/Home/logo14.png" style="width:70%;">
+                        <!-- Logo end -->
+
+                    </div>
+                    <div class=" col-lg-7 col-sm-8 col-md-7 col-xs-12" style="margin-top:30px">
+                        ;
+                        <div class="header-top">
+                            <div class="welcome-msg hidden-xs"> 欢迎光临! </div>
+                            <!-- 头部按钮 -->
+                            <div class="toplinks">
+                                <div class="links">
+                                    <div class="myaccount"><a title="My Account" href="~/User/dashboard"><span class="hidden-xs">我的账号</span></a></div>
+                                    <div class="administrator"><a title="Administrator" href="~/admin/Index"><span class="hidden-xs">管理员</span></a></div>
+                                    <div class="login"><a href="~/User/Login"><span class="hidden-xs">登 录</span></a></div>
+                                    <div class="login"><a href="~/User/Logoff"><span class="hidden-xs">登 出</span></a></div>
+                                </div>
+                            </div>
+                            <!-- 头部按钮 end -->
+                        </div>
+                        <div class="cart_cur_block">
+                            <!-- 简易购物车 -->
+                            <div class="top-cart-contain">
+                                <div class="mini-cart">
+                                    <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a onclick="window.location.href='/shoppingCarts/Index'"><span class="hidden-xs">购物车</span></a></div>
+
+                                </div>
+                            </div>
+                            <!-- 简易购物车end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!-- 导航栏 -->
+        <nav style="margin-left:30px;">
+            <div class="container">
+                <div class="nav-inner">
+                    <ul id="nav" class="hidden-xs">
+                        <li id="nav-home" class="level0 parent drop-menu active"><a href="/Product/Home"><span>主 页</span> </a></li>
+                        <li class="level0 nav-5 level-top first">
+                            <a class="level-top"> <span>分 类</span> </a><div style="display: none; left: 0px;" class="level0-wrapper dropdown-6col">
+                                <div class="nav-block nav-block-center">
+                                    <ul class="level0">
+                                        <li class="level1 nav-6-1 first parent item">
+                                            <a href="/Product/List?type=经典著作&keyWord="> <span>经典著作 </span> </a>
+                                            <ul class="level1">
+                                                <li class="level2 nav-6-1-1 first"> <a href="/Product/List?type=文学&keyWord="> <span>文学</span> </a> </li>
+                                                <li class="level2 nav-6-1-2"> <a href="/Product/List?type=历史学&keyWord="> <span>历史学</span> </a> </li>
+                                                <li class="level2 nav-6-1-2"> <a href="/Product/List?type=哲学&keyWord="> <span>哲学</span> </a> </li>
+                                            </ul>
+                                        </li>
+                                        <li class="level1 nav-6-2 parent item">
+                                            <a href="/Product/List?type=社会科学&keyWord="> <span>社会科学</span> </a>
+                                            <ul class="level1">
+                                                <li class="level2 nav-6-2-4 first"> <a href="/Product/List?type=教育学&keyWord="> <span>教育学</span> </a> </li>
+                                                <li class="level2 nav-6-2-5"> <a href="/Product/List?type=军事学&keyWord="> <span>军事学</span> </a> </li>
+                                                <li class="level2 nav-6-2-5"> <a href="/Product/List?type=法学&keyWord="> <span>法学</span> </a> </li>
+                                            </ul>
+                                        </li>
+                                        <li class="level1 nav-6-3 parent item">
+                                            <a href="/Product/List?type=财经管理&keyWord="> <span>财经管理</span> </a>
+                                            <ul class="level1">
+                                                <li class="level2 nav-6-3-9 first"> <a href="/Product/List?type=经济学&keyWord="> <span>经济学</span> </a> </li>
+                                                <li class="level2 nav-6-3-10"> <a href="/Product/List?type=管理学&keyWord="> <span>管理学</span> </a> </li>
+                                            </ul>
+                                        </li>
+                                        <li class="level1 nav-6-4 parent item">
+                                            <a href="/Product/List?type=专业科学&keyWord="> <span>专业科学</span> </a>
+                                            <ul class="level1">
+                                                <li class="level2 nav-6-4-13 first"> <a href="/Product/List?type=理学&keyWord="> <span>理学</span> </a> </li>
+                                                <li class="level2 nav-6-4-14"> <a href="/Product/List?type=工学&keyWord="> <span>工学</span> </a> </li>
+                                                <li class="level2 nav-6-4-14"> <a href="/Product/List?type=医学&keyWord="> <span>医学</span> </a> </li>
+                                                <li class="level2 nav-6-4-15 last"> <a href="/Product/List?type=农学&keyWord="> <span>农学</span> </a> </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="level0 nav-5 level-top first"><a href="~/User/dashboard"><span>个人账户</span> </a></li>
+                        <li class="level0 nav-5 level-top first"><a href="/Product/AddNewBook"><span>发布商品</span> </a></li>
+                        <li class="level0 nav-5 level-top first"><a href="/order/myorder"><span>查看订单</span> </a></li>
+                    </ul>
+                    <div id="form-search" class="search-bar">
+                        <form id="search_mini_form" action="/Product/List" method="post">
+                            <input class="search-bar-input" placeholder="输入检索词..." type="text" value="" name="search" id="search">
+                            <input class="search-bar-submit" type="submit" value="">
+                            <span class="search-icon"><img src="/images/Home/search-icon.png" alt="search-icon"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- 导航栏end -->
+        <div class="container body-content">
+            @RenderBody()
+            <footer>
+                <div class="container">
+                    <div class="inner">
+
+                        <div class="footer-middle">
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="footer-column-1">
+                                    <div class="footer-logo"><img style="width:100%;" src="/images/Home/logo6.png" alt="logo"></div>
+
+                                    <p>我们本次设计的是一个学生与学生之间进行的二手书交易平台。我们的系统中主要涉及到用户、图书之间的操作，进一步引申出来我们还要购物车、订单、评论等功能；同时我们还给不同的用户赋予了不同的权限。</p>
+                                    <div class="social">
+                                        <ul class="link">
+                                            <li class="fb"><a href="#"></a></li>
+                                            <li class="tw"><a href="#"></a></li>
+                                            <li class="googleplus"><a href="#"></a></li>
+                                            <li class="rss"><a href="#"></a></li>
+                                            <li class="linkedin"><a href="#"></a></li>
+                                            <li class="youtube"><a href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <h4 class="green">快捷选项</h4>
+                                <ul class="links">
+                                    <li class="first"><a title="Your Account">我的账号</a></li>
+                                    <li><a title="Information">我的订单</a></li>
+                                    <li><a title="Addresses">我的发布</a></li>
+                                    <li><a title="Orders History">搜索商品</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <h4 class="yellow">购买建议</h4>
+                                <ul class="links">
+                                    <li class="first"><a title="Your Account">查看账户</a></li>
+                                    <li><a title="Information">查看订单</a></li>
+                                    <li><a title="Addresses">如何发布商品</a></li>
+                                    <li><a title="Addresses">如何撤销商品</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <h4 class="orange">更多信息</h4>
+                                <ul class="links">
+                                    <li><a title="Addresses">关于我们</a></li>
+                                    <li><a title="Orders History">使用指南</a></li>
+                                    <li class="last"><a title=" Additional Information">购物车</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <h4 class="blue">和我们联系</h4>
+                                <ul class="links">
+                                    <li class="first"><a title="Your Account">点击need help</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-bottom">
+                                <div class="col-sm-3 col-xs-12 coppyright"> &copy; 2016 All Rights Reserved.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- 服务窗 -->
+        <div class="help_slider">
+            <div class="text alignleft">帮助</div>
+            <div class="icons"> <a style="cursor:pointer;" class="show_hide" onclick="jQuery('#hideShow').show();jQuery('#hideShow1').hide();" id="questionbox-side-phonebutton"><i class="icon-phones">&nbsp;</i></a> <a style="cursor:pointer;" onclick="jQuery('#hideShow').hide();jQuery('#hideShow1').show();" class="show_hide1" id="questionbox-side-emailbutton" href="javascript:void(0)"><i class="icon-email">&nbsp;</i></a> </div>
+        </div>
+        <!-- 服务窗 -->
+
+        <div id="hideShow" class="right-side-content" style="display: none;">
+            <!--联系我们 -->
+            <div class="slider-phone active">
+                <h2 class="">需要帮助？</h2>
+                <h3 class="">24/7 客服</h3>
+                <br>
+                <span class="phone-number"> +1 800 123 1234</span></p>
+                <a id="hideDiv" class="slider-close" style="cursor:pointer;" onclick="jQuery('#hideShow').hide();"></a>
+            </div>
+        </div>
+
+        <div id="hideShow1" style="display: none;">
+            <div class="right-side-content hidden1">
+                <div class="slider-email active">
+                    <div id="messages_product_view"></div>
+                    <div id="formSuccess" style="display:none;">您的疑问已提交，感谢您的反馈！</div>
+                    <form id="contactForm1" method="post" action="~/User/comment">
+                        <div class="column sixty">
+                            <h2>联系我们</h2>
+                            <ul>
+                                <li>
+                                    <label>姓名<em class="required">*</em></label>
+                                    <input name="name" id="name" title="Name" value="" class="input-text required-entry" type="text">
+                                </li>
+                                <li>
+                                    <label>邮箱地址<em class="required">*</em></label>
+                                    <input name="email" id="email" title="Email" value="" class="input-text required-entry validate-email" type="text">
+                                </li>
+                                <li>
+                                    <label>电话号码</label>
+                                    <input name="telephone" id="telephone" title="Telephone" value="" class="input-text" type="text">
+                                </li>
+                            </ul>
+                            <p class="required">* 必须填写</p>
+                        </div>
+                        <!--column sixty-->
+                        <div class="column fourty last">
+                            <div class="padding">
+                                <label>评论<em class="required">*</em></label>
+                                <textarea name="comment" title="Comment" class="required-entry input-text" cols="5" rows="3"></textarea>
+                                <div class="textright">
+                                    <input type="text" name="hideit" value="" style="display:none !important;">
+                                    <button type="submit" title="Submit" class="button btn-sent" onclick="alert('提交成功！');"><span>提交</span></button>
+                                    <img src="images/Home/mgkloading1.gif" alt="loader" id="loader" style="display:none;">
+                                </div>
+                                <!--textright-->
+                            </div>
+                            <!--padding-->
+                        </div>
+                        <!--column fourty last-->
+                    </form>
+                    <a onclick="jQuery('#hideShow1').hide();" style="cursor:pointer;" id="hideDiv1" class="slider-close"></a>
+                </div>
+                <!--slider-email active-->
+            </div>
+            <!--right-side-content hidden1-->
+        </div>
+
+        <!-- JavaScript -->
+        <script type="text/javascript" src="~/js/ACCOUNT/jquery.min.js"></script>
+        <script type="text/javascript" src="~/js/ACCOUNT/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/js/ACCOUNT/common.js"></script>
+        <script type="text/javascript" src="~/js/ACCOUNT/slider.js"></script>
+        <script type="text/javascript" src="~/js/ACCOUNT/owl.carousel.min.js"></script>
+        <script type="text/javascript">
+
+	jQuery(function() {
+		jQuery(".slideshow").cycle({
+			fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, 			pager: '#home-slides-pager',
+			prev: '#home-slides-prev',
+			next: '#home-slides-next'
+		});
+	});
+
+        </script>
+        <script>
+			new UISearch( document.getElementById( 'form-search' ) );
+        </script>
+</body>
+</html>

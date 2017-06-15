@@ -1,0 +1,4 @@
+﻿name:@name@
+email:@email@
+tele-phone:@phone@
+comment:@comment@

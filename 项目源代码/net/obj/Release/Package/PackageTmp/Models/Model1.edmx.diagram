@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b08dafd7726e48328d7073022a6b4acd" Name="Diagram1">
+        <EntityTypeShape EntityType="netHWModel.book" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.book_cart" Width="1.5" PointX="10.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.book_order" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.bookComment" Width="1.5" PointX="13.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.bookDetail" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.bookOrder" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.bookType" Width="1.5" PointX="6" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.receiving" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.shoppingCart" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.userRole" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="netHWModel.users" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="netHWModel.book_cart_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.book_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.book_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.book_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.book_order_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.bookComment_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.book_cart_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.book_order_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.bookComment_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.bookOrder_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.bookOrder_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.bookOrder_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.users_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.shoppingCart_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.attention" ManuallyRouted="false" />
+        <AssociationConnector Association="netHWModel.user_userRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

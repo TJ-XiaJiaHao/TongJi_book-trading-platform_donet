@@ -1,0 +1,19 @@
+﻿Build started 2017/6/13 19:25:59.
+     1>Project "d:\documents\visual studio 2013\Projects\MSGBUS\MSGBUS\MSGBUS.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\visual studio 2013\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _MERGE_PROXYSTUB /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\MSGBUS.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt MSGBUS.cpp
+         MSGBUS.cpp
+       Link:
+         D:\visual studio 2013\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"d:\documents\visual studio 2013\Projects\MSGBUS\x64\Debug\MSGBUS.dll" /INCREMENTAL /NOLOGO comsvcs.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\MSGBUS.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"d:\documents\visual studio 2013\Projects\MSGBUS\x64\Debug\MSGBUS.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X64 /DLL x64\Debug\MSGBUS.res
+         x64\Debug\compreg.obj
+         x64\Debug\dllmain.obj
+         x64\Debug\MSGBUS.obj
+         x64\Debug\MSGBUS_i.obj
+         x64\Debug\stdafx.obj
+         x64\Debug\xdlldata.obj
+         MSGBUS.vcxproj -> d:\documents\visual studio 2013\Projects\MSGBUS\x64\Debug\MSGBUS.dll
+     1>Done Building Project "d:\documents\visual studio 2013\Projects\MSGBUS\MSGBUS\MSGBUS.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.09

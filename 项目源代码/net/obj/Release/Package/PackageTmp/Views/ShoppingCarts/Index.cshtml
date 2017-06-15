@@ -1,0 +1,129 @@
+﻿@model IEnumerable<net.Models.book_cart>
+@{
+    ViewBag.Title = "My Shopping Cart";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>我的购物车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/style.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/font-awesome.css" type="text/css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/SHOPPING_CART/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/common.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/slider.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+    <script>
+        function paySuccess() {
+            toastr.success("支付成功，等待卖家确认");
+        }
+    </script>
+</head>
+<body>
+    <div class="page">
+        <section class="main-container col1-layout">
+            <div class="main container">
+                <div class="col-main">
+                    <div class="cart">
+                        <div class="page-title">
+                            <h1>购物车</h1>
+                            @if (Model.Count() == 0)
+                            {
+                                <h3>
+                                    您的购物车空空如也~~~
+                                </h3>
+                            }
+                        </div>
+                        <div class="table-responsive">
+                           
+                                    @foreach (var id in ViewBag.seller_id)
+                                    {
+                                        <table class="data-table cart-table" id="shopping-cart-table">
+
+                                            <thead>
+                                                <tr class="first last">
+                                                    <th rowspan="1"><span class="nobr">卖家编号 : </span></th>
+                                                    <th class="seller_id"> <a href="seller_id.html">@id</a></th>
+                                                    <th rowspan="1"></th>
+                                                    <th class="a-center" rowspan="1">&nbsp;</th>
+                                                    <th rowspan="1"></th>
+                                                    <th class="a-center" rowspan="1">&nbsp;</th>
+                                                    <th rowspan="1"></th>
+                                                    <th class="a-center" rowspan="1">&nbsp;</th>
+                                                    <th rowspan="1"></th>
+                                                    <th class="a-center" rowspan="1">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr class="first last">
+                                                    <td class="a-right last" colspan="50">
+
+                                                        <button id="submit_order_button" class="button btn-order" title="Submit Order" value="submit_order" name="submit_order_action" type="button">
+                                                            <a href="/shoppingCarts/order?buyer_id=@ViewBag.myShoppingCartId&seller_id=@id">结算</a>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    if (item.book.account == id)
+                                                    {
+                                                        <form method="post" action="~/shoppingCarts/Edit">
+                                                            <fieldset>
+                                                                <tr class="first odd">
+                                                                    <td class="image"><a class="product-image" title="Sample Product"><img width="75" alt="Sample Product1" src="@item.book.picture_url"></a></td>
+                                                                    <td><h2 class="product-name"> <a href="/Product/BookDetails?book_id=@item.book_id"> @Html.DisplayFor(modelItem => item.book.book_name)</a> </h2></td><!-- 访问书本详细信息的接口-->
+                                                                    <td><input type="text" width="1" title="book_id" name="book_id" id="book_id" value="@item.book_id " style="visibility:hidden;" class="input-text" /></td>
+                                                                    <td class="a-right"><span class="cart-price"> <span class="price">$ @Html.DisplayFor(modelItem => item.book.price)</span> </span></td>
+                                                                    <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" size="4" value="@(Convert.ToInt32(item.count))" name="shoppingCartItemChange"></td><!-- 输入具体的数量-->
+                                                                    <td class="a-center"><button title="Edit item parameters" class="edit-bnt" type="submit"></button></td>         <!--修改购物车书本数量-->
+                                                                    <td><input type="text" width="2" title="cart_id" name="cart_id" id="cart_id" value="@item.cart_id " style="visibility:hidden;" class="input-text" /></td>
+                                                                    <td class="a-right movewishlist"><span class="cart-price"> <span class="price">$@(item.book.price * item.count )</span> </span></td>
+                                                                    <td class="a-center last"><a class="button remove-item" title="Remove item" href="/shoppingCarts/Clear?cart_id=@item.cart_id&book_id=@item.book_id"><span><span>移除</span></span></a></td>
+                                                                </tr>
+                                                            </fieldset>
+                                                        </form>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    }
+                                    <br />
+                                    <br />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- 脚注 -->
+
+</body>
+</html>

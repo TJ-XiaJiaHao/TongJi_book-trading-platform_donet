@@ -1,0 +1,267 @@
+﻿@model IEnumerable<net.Models.book_order>
+@{
+    ViewBag.Title = "My Shopping Cart";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Amaze, premium HTML5 &amp; CSS3 template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/style.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/CSS/SHOPPING_CART/font-awesome.css" type="text/css">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/SHOPPING_CART/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/common.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/slider.js"></script>
+    <script type="text/javascript" src="~/js/SHOPPING_CART/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+
+        jQuery(function () {
+            jQuery(".slideshow").cycle({
+                fx: 'scrollHorz', easing: 'easeInOutCubic', timeout: 10000, speedOut: 800, speedIn: 800, sync: 1, pause: 1, fit: 0, pager: '#home-slides-pager',
+                prev: '#home-slides-prev',
+                next: '#home-slides-next'
+            });
+        });
+    </script>
+    <script>
+        new UISearch(document.getElementById('form-search'));
+    </script>
+    <script>
+        function paySuccess() {
+            var xml = new ActiveXObject('MSGBUS.GETMSG');
+            toastr.success(xml.getMsg(00003));
+            //alert("支付成功，等待卖家确认");
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="page">
+        <div class="main-container col2-right-layout">
+            <div class="main container">
+                <!--<div class="row">-->
+
+                <section class="col-main col-sm-9 wow">
+                    @if (Model.Count() > 0)
+                    {
+                        <div class="my-account">
+                            <div class="page-title new_page_title">
+                                <h2>确认订单</h2>
+                            </div>
+                            <div class="dashboard">
+                                <div class="welcome-msg">
+                                    <strong>请确认好自己的订单信息!</strong>
+                                    <br />
+                                    <br />
+                                </div>
+                                <div class="recent-orders">
+                                    <div class="title-buttons"><strong>订单编号&nbsp;</strong>:@Model.First().order_id</div>
+                                    <div class="table-responsive">
+                                        <table class="data-table cart-table" id="shopping-cart-table">
+                                            <thead>
+                                                <tr class="first last">
+                                                    <th><span class="nobr">卖家编号 : </span></th>
+                                                    <th class="seller_id"> <span class="nobr">@Model.First().book.account</span></th>
+                                                    <th rowspan="1">单价</th>
+                                                    <th class="a-center" rowspan="1">数量</th>
+                                                    <th rowspan="1">总价</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr class="first odd">
+                                                        <td class="image"><a class="product-image" title="Sample Product" href="product_detail.html"><img width="75" alt="Sample Product" src="@item.book.picture_url"></a></td>
+                                                        <td><h5 class="product-name"> <a href="product_detail.html">@item.book.book_name</a> </h5></td>
+                                                        <td class="a-right"><span class="cart-price"> <span class="price"><strong>￥@item.book.price</strong></span></span></td>
+                                                        <td class="a-center movewishlist"><span>@item.count</span></td>
+                                                        <td class="a-right movewishlist"><span class="cart-price"> <span class="price"><strong>￥@(item.count * item.book.price)</strong></span> </span></td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                            <div class="table-responsive">
+                                                <table class="data-table" id="my-orders-table">
+                                                    <thead>
+                                                        <tr class="first last"></tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!--<li id="opc-billing" class="section allow active">-->
+
+                                <div>
+                                    <br />
+                                    <h4><strong>收货信息(需要修改时请输入新的信息)</strong></h4>
+                                    <br />
+                                    @if (Model.First().bookOrder.receiving != null)
+                                    {
+                                        <div id="checkout-step-billing" class="step a-item" style="">
+                                            <form id="co-billing-form" action="~/shoppingCarts/address" method="post">
+                                                <fieldset class="group-select">
+
+                                                    <ul>
+                                                        <li id="address-form">
+                                                            <div class="user-account">
+                                                                <div class="input-box name">
+                                                                    <label for="name">姓名</label>
+                                                                    <br>
+                                                                    <input type="text" id="name" name="name" value="@Model.First().bookOrder.receiving.name" title="Name" class="input-text required-entry" />
+                                                                </div>
+                                                                <div class="input-box telephone">
+                                                                    <label for="telephone"> 联系方式 </label>
+                                                                    <br>
+                                                                    <input type="text" id="telephone" name="telephone" value="@Model.First().bookOrder.receiving.tele_number" title="Telephone" class="input-text required-entry" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-box">
+                                                                <label>省名</label>
+                                                                <br>
+                                                                <input type="text" id="province" name="province" value="@Model.First().bookOrder.receiving.province" title="Province" class="input-text" />
+                                                            </div>
+                                                            <div class="input-box">
+                                                                <label>市名</label>
+                                                                <br>
+                                                                <input type="text" name="city" id="city" value="@Model.First().bookOrder.receiving.city" title="City" class="input-text required-entry" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="input-box">
+                                                                <label>街道</label>
+                                                                <br>
+                                                                <input type="text" id="province" name="street" value="@Model.First().bookOrder.receiving.street" title="street" class="input-text" />
+                                                            </div>
+                                                            <div class="input-box">
+                                                                <label>详细地址</label>
+                                                                <br>
+                                                                <input type="text" name="address" id="address2" value="@Model.First().bookOrder.receiving.address" title="address" class="input-text required-entry" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <input type="text" title="order_id" name="order_id" id="order_id" value="@Model.First().order_id" style="visibility:hidden;" class="input-text" />
+                                                        </li>
+                                                        <br />
+                                                    </ul>
+                                                </fieldset>
+                                                <button id="submit_order_button" class="button btn-payment" title="订单支付" value="submit_order" name="submit_order_action" type="submit" onclick="paySuccess()"><span>支付</span></button>
+                                                <button id="submit_order_button" class="button btn-payment" title="订单取消" value="submit_order" name="submit_order_action"><span><a href="/shoppingCarts/Cancel?orderId=@Model.First().order_id">取消</a></span></button>
+                                            </form>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div id="checkout-step-billing" class="step a-item" style="">
+                                            <form id="co-billing-form" action="~/shoppingCarts/address" method="post">
+                                                <fieldset class="group-select">
+
+                                                    <ul>
+                                                        <li id="address-form">
+                                                            <div class="user-account">
+                                                                <div class="input-box name">
+                                                                    <label for="name">姓名</label>
+                                                                    <br>
+                                                                    <input type="text" id="name" name="name" value="" title="Name" class="input-text required-entry" />
+                                                                </div>
+                                                                <div class="input-box telephone">
+                                                                    <label for="telephone"> 联系方式 </label>
+                                                                    <br>
+                                                                    <input type="text" id="telephone" name="telephone" value="" title="Telephone" class="input-text required-entry" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-box">
+                                                                <label>省名</label>
+                                                                <br>
+                                                                <input type="text" id="province" name="province" value="" title="Province" class="input-text" />
+                                                            </div>
+                                                            <div class="input-box">
+                                                                <label>市名</label>
+                                                                <br>
+                                                                <input type="text" name="city" id="city" value="" title="City" class="input-text required-entry" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="input-box">
+                                                                <label>街道</label>
+                                                                <br>
+                                                                <input type="text" id="province" name="street" value="" title="street" class="input-text" />
+                                                            </div>
+                                                            <div class="input-box">
+                                                                <label>详细地址</label>
+                                                                <br>
+                                                                <input type="text" name="address" id="address2" value="" title="address" class="input-text required-entry" />
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <input type="text" title="Street Address 2" name="address2" id="address2" value="" class="input-text" />
+                                                        </li>
+                                                        <li>
+                                                            <input type="text" title="order_id" name="order_id" id="order_id" value="@Model.First().order_id" style="visibility:hidden;" class="input-text" />
+                                                        </li>
+                                                        <br />
+                                                    </ul>
+                                                </fieldset>
+                                                <button id="submit_order_button" class="button btn-payment" title="订单支付" value="submit_order" name="submit_order_action" type="submit" onclick="paySuccess()"><span>支付</span></button>
+                                                <button id="submit_order_button" class="button btn-payment" title="订单取消" value="submit_order" name="submit_order_action"><span><a href="/shoppingCarts/Cancel?orderId=@Model.First().order_id">取消</a></span></button>
+                                            </form>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <hr />
+                    }
+
+                    @if (Model.Count() == 0)
+                    {
+                        <div class="my-account">
+                            <div class="page-title new_page_title">
+                                <h2>生成失败</h2>
+                            </div>
+                            <div class="dashboard">
+                                <div class="welcome-msg">
+                                    <strong>你所购买的所有物品均超过物品上限！！！</strong>
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </section>
+                <aside class="col-right sidebar col-sm-3 wow bounceInUp animated">
+                    <div class="block block-account">
+                        <div class="block-title">我的帐户</div>
+                        <div class="block-content">
+                            <ul>
+                                <li><a href="~/User/dashboard">我的信息</a></li>
+                                <li><a href="/order/myorder">我的订单</a></li>
+                                <li><a href="/order/sold_goods">已发布的商品</a></li>
+                                <li><a href="/Product/AddNewBook">发布商品</a></li>
+                                <li><a href="~/User/aboutUs">关于我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

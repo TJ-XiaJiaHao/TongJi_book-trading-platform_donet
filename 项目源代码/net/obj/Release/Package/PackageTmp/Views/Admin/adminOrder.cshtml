@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "adminOrder";
+}
+
+<div class="container" id="manage" style="padding:15px">
+    <div id="getWidth">
+        <h4 style="margin-left:20px;margin-buttom:5px;width:300px;display:inline">订单列表</h4>
+        <form action="" style="display:inline;float:right;margin-buttom:5px">
+            搜索：
+            <input type="text" id="wyx_search_txt" onkeyup="searchOrder()" />
+        </form>
+    </div>
+    <div id="wyx_top_guide">
+        <div id="guide_order_id">订单编号</div>
+        <div id="guide_cus_id" style="background:#9dd6e4">买家ID</div>
+        <div id="guide_seller_id">卖家ID</div>
+        <div id="guide_order_status" style="background:#9dd6e4">订单状态</div>
+        <div id="guide_operate">管理</div>
+    </div>
+    <div id="wyx_orderList"></div>
+    <div id="wyx_pages"></div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    var orderIDList = new Array();
+    var cusIDList = new Array();
+    var sellerIDList = new Array();
+    var statusList = new Array();
+
+    var pageCnt = 1;
+    var currentPage = 1;
+
+    $(document).ready(function () {
+
+        var temp;
+        temp= document.getElementById("wyx_search_txt").value;
+        request(temp, 1);
+
+
+    });
+
+
+
+    function createOrder(orderID, cusID, sellerID, orderStatus, orderDate) {
+        var temp = $("<div></div>");
+        temp.attr("id", orderID + "_order");
+
+        var o_id = $("<div></div>");
+        o_id.html(orderID);
+        o_id.attr("class", "order_id");
+
+        var c_id = $("<div></div>");
+        c_id.html(cusID);
+        c_id.attr("class", "order_cus_id");
+
+        var s_id = $("<div></div>");
+        s_id.html(sellerID);
+        s_id.attr("class", "order_seller_id");
+
+        var status = $("<div></div>");
+        status.html(orderStatus);
+        status.attr("class", "order_status");
+
+
+
+        var change_button = $("<div></div>");
+        change_button.html("<a>删除订单</a>");
+        change_button.attr("class", "change_order");
+
+        $(temp).append(o_id);
+        $(temp).append(c_id);
+        $(temp).append(s_id);
+        $(temp).append(status);
+        $(temp).append(change_button);
+
+        return temp;
+    }
+
+    function init() {
+        $("#wyx_orderList").html("");
+        for (var i = 0; i < orderIDList.length; i++) {
+            $("#wyx_orderList").append(createOrder(orderIDList[i], cusIDList[i], sellerIDList[i], statusList[i]));
+        }
+        for (var i = 0; i < pageCnt; i++) {
+            $("#" + (i + 1) + "_page_wyx").css("background", "transparent");
+            if (i + 1 == currentPage)
+                $("#" + (i + 1) + "_page_wyx").css("background", "#44d6e4");
+        }
+    }
+
+    function init_format() {
+        var w = parseInt($("#getWidth").css("width"));
+        w /= 5;
+
+        $("#guide_order_id,#guide_cus_id,#guide_seller_id,#guide_order_status,#guide_operate,.order_id,.order_cus_id,.order_seller_id,.order_status,.change_order").css("width", w + "px");
+        w = parseInt($("#getWidth").css("width"));
+        $("#1_page_wyx").css("marginLeft", ((w - 26 * pageCnt) / 2 + 3) + "px");
+    }
+
+
+    function createPageView() {
+        $("#wyx_pages").html("");
+        for (var i = 0; i < pageCnt; i++) {
+            var temp = $("<div></div>");
+            temp.html(i + 1);
+            temp.attr("class", "wyx_page_div");
+            temp.attr("id", (i + 1) + "_page_wyx");
+            $("#wyx_pages").append(temp);
+        }
+    }
+
+    function request(keyWord, page) {
+
+        orderIDList = new Array();
+        cusIDList = new Array();
+        sellerIDList = new Array();
+        statusList = new Array();
+
+        $.ajax({
+            url: "getOrderList",
+            dataType: "json",
+            cache: false,
+            data: "match=" + keyWord + "&Page=" + page,
+            type: "POST",
+            success: function (data) {
+                for (var i = 0, length = data.Data.length; i < length; i++) {
+                    orderIDList[i] = data.Data[i].o_id;
+                    cusIDList[i] = data.Data[i].c_id;
+                    sellerIDList[i] = data.Data[i].s_id;
+                    statusList[i] = data.Data[i].status;
+                }
+                currentPage = data.curPage;
+                pageCnt = data.pageCnt;
+                document.getElementById("wyx_search_txt").value = data.key;
+                initpage();
+            }
+
+        });
+
+    }
+
+    function initpage() {
+        init();
+        createPageView();
+        init_format();
+        $(".wyx_page_div").click(function () {
+            var temp;
+            temp = document.getElementById("wyx_search_txt").value;
+            request(temp, parseInt($(this).attr("id")));
+        })
+    }
+
+    function searchOrder() {
+        var temp;
+        temp = document.getElementById("wyx_search_txt").value;
+        request(temp, 1);
+    }
+
+</script>
+
+
+<style type="text/css">
+    .order_id, .order_cus_id, .order_seller_id, .order_status, .order_date, .change_order {
+        text-align: center;
+        font-size: 16px;
+        position: relative;
+        float: left;
+        padding: 20px 0px 20px 0px;
+    }
+
+    .order_cus_id, .order_status {
+        background: #9dd6e4;
+    }
+
+    #wyx_top_guide div {
+        position: relative;
+        float: left;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 2px;
+        margin-top: 3px;
+    }
+
+    .wyx_page_div {
+        border: 1px solid #777777;
+        border-radius: 4px;
+        position: relative;
+        float: left;
+        width: 20px;
+        height: 30px;
+        text-align: center;
+        padding-top: 6.5px;
+        margin: 3px;
+        margin-top: 20px;
+    }
+
+        .wyx_page_div:hover {
+            background: #336699;
+        }
+</style>
+<!-- end  wyx 订单管理界面 -->

@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "change_Info";
+}
+
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <section class="col-main col-sm-9 wow">
+                <div class="static-contain">
+                    <div class="page-title new_page_title">
+                        <h2>修改信息</h2>
+                    </div>
+                    <form method="post" action="~/user/on_change_info" enctype="multipart/form-data">
+                        <fieldset class="group-select">
+                            <ul>
+                                <li id="billing-new-address-form">
+                                    <fieldset>
+                                        <legend>New Info</legend>
+                                        <input type="hidden" name="billing[address_id]" value="" id="billing:address_id">
+                                        <ul>
+                                            <li>
+                                                <div class="product-name">
+                                                    <div class="input-box name-productname">
+                                                        <label for="billing:productname"> 用户名<span class="required">*</span></label>
+                                                        <br>
+                                                        <input type="text" id="billing:productname" name="name" value="@ViewData["nickName"]" title="Nick Name" class="input-text ">
+                                                        <br />
+                                                        <label class="required" style="color:red;">@Html.ValidationMessage("name")</label>
+                                                    </div>
+                                                    <div class="input-box name-authorname">
+                                                        <label for="billing:authorname"> 性别 <span class="required">*</span> </label>
+                                                        <br>
+                                                        <select name="sex" id="sex">
+                                                            <option value="0">不明</option>
+                                                            <option value="1">男</option>
+                                                            <option value="2">女</option>
+                                                        </select>
+                                                        <br />
+                                                        <label class="required" style="color:red;">@Html.ValidationMessage("sex")</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <label for="billing:basicinfo"> 邮箱地址 <span class="required">*</span></label>
+                                                <br>
+                                                <input type="text" name="email" id="billing:basicinfo" value="@ViewData["email"]" title="email" class="input-text">
+                                                <br />
+                                                <label class="required" style="color:red;">@Html.ValidationMessage("email")</label>
+                                            </li>
+                                            <li class="">
+                                                <label>联系电话<em class="required">*</em></label>
+                                                <br>
+                                                <input type="text" name="phone" id="billing:basicinfo" value="@ViewData["phone"]" title="phone" class="input-text">
+                                                <br />
+                                                <label class="required" style="color:red;">@Html.ValidationMessage("phone")</label>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li class="">
+                                    <label>上传头像<em class="required">*</em></label>
+                                    <input id="File1" name="picture" type="file" accept=".png,.jpg,.jpeg" />
+                                </li>
+                                <li>
+                                    <p class="require"><em class="required">* </em>必须填写内容</p>
+                                    <input type="text" name="hideit" value="" style="display:none !important;">
+                                    <div class="buttons-set">
+                                        <button type="submit" title="Submit" class="button submit"> <span> 提交 </span> </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+            <aside class="col-right sidebar col-sm-3 wow">
+                <div class="block block-company">
+                    <div class="block-title">我的帐户 </div>
+                    <div class="block-content">
+                        <ol id="recently-viewed-items">
+                            <li><a href="~/User/dashboard">我的信息</a></li>
+                            <li><a href="/order/myorder">我的订单</a></li>
+                            <li><a href="/order/sold_goods">已发布的商品</a></li>
+                            <li><a href="/Product/AddNewBook">发布商品</a></li>
+                            <li><a href="~/User/aboutUs">关于我们</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("sex").options[@ViewData["sex"]].selected = "selected";
+</script>
+
+

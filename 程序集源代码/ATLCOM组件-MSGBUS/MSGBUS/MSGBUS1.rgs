@@ -1,0 +1,26 @@
+HKCR
+{
+	MSGBUS.GETMSG.1 = s 'MSGBUS Class'
+	{
+		CLSID = s '{14195B27-E7FE-44FB-8600-AA3B147FCDFF}'
+	}
+	MSGBUS.GETMSG = s 'MSGBUS Class'
+	{		
+		CurVer = s 'MSGBUS.GETMSG.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {14195B27-E7FE-44FB-8600-AA3B147FCDFF} = s 'MSGBUS Class'
+		{
+			ProgID = s 'MSGBUS.GETMSG.1'
+			VersionIndependentProgID = s 'MSGBUS.GETMSG'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{F348B5B9-2C9F-49DE-AF93-BECE4A6EE448}'
+			Version = s '1.0'
+		}
+	}
+}

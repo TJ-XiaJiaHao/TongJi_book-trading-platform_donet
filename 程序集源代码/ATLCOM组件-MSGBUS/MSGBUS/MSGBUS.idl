@@ -1,0 +1,62 @@
+// MSGBUS.idl : IDL source for MSGBUS
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MSGBUS.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,	
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(A05F6F3A-B773-4851-9AC5-24281003E0CE),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMSGBUS : IDispatch{
+	[id(1)] HRESULT getMsg([in] LONG id, [out, retval] BSTR* msg);
+	[id(2)] HRESULT getError([in] LONG id, [out, retval] BSTR* msg);
+	[id(3)] HRESULT getInfo([in] LONG id, [out, retval] BSTR* msg);
+};
+[
+	uuid(F348B5B9-2C9F-49DE-AF93-BECE4A6EE448),
+	version(1.0),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{77142EDE-6E71-4193-A4EE-FF583762EF8F}")
+]
+library MSGBUSLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(77142EDE-6E71-4193-A4EE-FF583762EF8F)		
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(14195B27-E7FE-44FB-8600-AA3B147FCDFF)		
+	]
+	coclass MSGBUS
+	{
+		[default] interface IMSGBUS;
+	};
+};
+
+import "shobjidl.idl";

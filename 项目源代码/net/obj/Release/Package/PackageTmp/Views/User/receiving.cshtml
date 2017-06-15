@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "change_Info";
+}
+
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <section class="col-main col-sm-9 wow">
+                <div class="static-contain">
+                    <div class="page-title new_page_title">
+                        <h2>修改默认收货信息</h2>
+                    </div>
+                    <form method="post" action="~/user/change_receiving">
+                        <fieldset class="group-select">
+                            <ul>
+                                <li id="billing-new-address-form">
+                                    <fieldset>
+                                        <legend>New Info</legend>
+                                        <input type="hidden" name="billing[address_id]" value="" id="billing:address_id">
+                                        <ul>
+                                            <li>
+                                                <div class="product-name">
+                                                    <div class="input-box name-productname">
+                                                        <label for="billing:productname"> 收件人<span class="required">*</span></label>
+                                                        <br>
+                                                        <input type="text" id="billing:productname" name="name" value="@ViewData["name"]" title="Name" class="input-text ">
+                                                        <br />
+                                                        <label class="required" style="color:red;">@Html.ValidationMessage("name")</label>
+                                                    </div>
+                                                    <div class="input-box name-authorname">
+                                                        <label for="billing:authorname"> 电话 <span class="required">*</span> </label>
+                                                        <br>
+                                                        <input type="text" id="billing:authorname" name="phone" value="@ViewData["phone"]" title="phone" class="input-text">
+                                                        <br />
+                                                        <label class="required" style="color:red;">@Html.ValidationMessage("phone")</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="product-name">
+                                                    <div class="input-box name-productname">
+                                                        <label for="billing:basicinfo"> 省份 <span class="required">*</span></label>
+                                                        <br>
+                                                        <input type="text" name="province" id="billing:basicinfo" value="@ViewData["province"]" title="email" class="input-text">
+                                                        <br />
+                                                        <label class="required" style="color:red;">@Html.ValidationMessage("province")</label>
+                                                    </div>
+                                                    <div class="input-box name-authorname">
+                                                        <label for="billing:authorname"> 城市 <span class="required">*</span> </label>
+                                                        <br>
+                                                        <input type="text" id="billing:authorname" name="city" value="@ViewData["city"]" title="phone" class="input-text">
+                                                        <br />
+                                                        <label class="required" style="color:red;">@Html.ValidationMessage("city")</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label for="billing:authorname"> 街道 <span class="required">*</span> </label>
+                                                <br>
+                                                <input type="text" id="billing:authorname" name="street" value="@ViewData["street"]" title="phone" class="input-text">
+                                                <br />
+                                                <label class="required" style="color:red;">@Html.ValidationMessage("street")</label>
+                                            </li>
+                                            <li class="">
+                                                <label>具体地址<em class="required">*</em></label>
+                                                <br>
+                                                <input type="text" name="address" id="billing:basicinfo" value="@ViewData["address"]" title="phone" class="input-text">
+                                                <br />
+                                                <label class="required" style="color:red;">@Html.ValidationMessage("address")</label>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li>
+                                    <p class="require"><em class="required">* </em>必须填写内容</p>
+                                    <input type="text" name="hideit" value="" style="display:none !important;">
+                                    <div class="buttons-set">
+                                        <button type="submit" title="Submit" class="button submit"> <span> 提交 </span> </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+            <aside class="col-right sidebar col-sm-3 wow">
+                <div class="block block-company">
+                    <div class="block-title">我的帐户 </div>
+                    <div class="block-content">
+                        <ol id="recently-viewed-items">
+                            <li><a href="~/User/dashboard">我的信息</a></li>
+                            <li><a href="/order/myorder">我的订单</a></li>
+                            <li><a href="/order/sold_goods">已发布的商品</a></li>
+                            <li><a href="/Product/AddNewBook">发布商品</a></li>
+                            <li><a href="~/User/aboutUs">关于我们</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("sex").options[@ViewData["sex"]].selected = "selected";
+</script>
