@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ViewData\OrderJson.cs" />
     <Compile Include="Controllers\ViewData\ReceivingForm.cs" />
     <Compile Include="Controllers\ViewData\RegisterForm.cs" />
+    <Compile Include="Controllers\ViewData\uploadFile.cs" />
     <Compile Include="Controllers\ViewData\UserForm.cs" />
     <Compile Include="Controllers\ViewData\userInfo.cs" />
     <Compile Include="DAL\AllOrders.cs" />
@@ -247,6 +248,42 @@
     <Content Include="BusinessLayer\VerifyEmail.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CSS\ACCOUNT\blogmate.css" />
+    <Content Include="CSS\ACCOUNT\bootstrap.min.css" />
+    <Content Include="CSS\ACCOUNT\fancybox.css" />
+    <Content Include="CSS\ACCOUNT\flexslider.css" />
+    <Content Include="CSS\ACCOUNT\font-awesome.css" />
+    <Content Include="CSS\ACCOUNT\owl.carousel.css" />
+    <Content Include="CSS\ACCOUNT\owl.theme.css" />
+    <Content Include="CSS\ACCOUNT\slider.css" />
+    <Content Include="CSS\ACCOUNT\style.css" />
+    <Content Include="CSS\fonts\fontawesome-webfont.svg" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="CSS\Home\bootstrap.min.css" />
+    <Content Include="CSS\Home\flexslider.css" />
+    <Content Include="CSS\Home\font-awesome.css" />
+    <Content Include="CSS\Home\owl.carousel.css" />
+    <Content Include="CSS\Home\owl.theme.css" />
+    <Content Include="CSS\Home\slider.css" />
+    <Content Include="CSS\Home\style.css" />
+    <Content Include="CSS\order\blogmate.css" />
+    <Content Include="CSS\order\bootstrap.min.css" />
+    <Content Include="CSS\order\fancybox.css" />
+    <Content Include="CSS\order\flexslider.css" />
+    <Content Include="CSS\order\font-awesome.css" />
+    <Content Include="CSS\order\owl.carousel.css" />
+    <Content Include="CSS\order\owl.theme.css" />
+    <Content Include="CSS\order\slider.css" />
+    <Content Include="CSS\order\style.css" />
+    <Content Include="CSS\SHOPPING_CART\blogmate.css" />
+    <Content Include="CSS\SHOPPING_CART\bootstrap.min.css" />
+    <Content Include="CSS\SHOPPING_CART\fancybox.css" />
+    <Content Include="CSS\SHOPPING_CART\flexslider.css" />
+    <Content Include="CSS\SHOPPING_CART\font-awesome.css" />
+    <Content Include="CSS\SHOPPING_CART\owl.carousel.css" />
+    <Content Include="CSS\SHOPPING_CART\owl.theme.css" />
+    <Content Include="CSS\SHOPPING_CART\slider.css" />
+    <Content Include="CSS\SHOPPING_CART\style.css" />
     <Content Include="CSS\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -772,6 +809,15 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="CSS\ACCOUNT\.DS_Store" />
+    <Content Include="CSS\fonts\.DS_Store" />
+    <Content Include="CSS\fonts\fontawesome-webfont.eot" />
+    <Content Include="CSS\fonts\fontawesome-webfont.ttf" />
+    <Content Include="CSS\fonts\fontawesome-webfont.woff" />
+    <Content Include="CSS\fonts\FontAwesome.otf" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1118,6 +1164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CSS\AddNewBook\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

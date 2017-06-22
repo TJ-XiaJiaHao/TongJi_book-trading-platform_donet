@@ -6,8 +6,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_NewBackgroundProfile>False</_NewBackgroundProfile>
-    <_PublishTargetUrl>C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\net\net\bin\Release\PublishOutput</_PublishTargetUrl>
+    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+    <_PublishTargetUrl>C:\Users\Administrator\Desktop\publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -62,10 +62,10 @@
       <publishTime>01/05/2012 11:08:46</publishTime>
     </File>
     <File Include="bin/net.dll">
-      <publishTime>06/14/2017 08:28:07</publishTime>
+      <publishTime>06/22/2017 13:15:42</publishTime>
     </File>
     <File Include="bin/net.pdb">
-      <publishTime>06/14/2017 08:28:07</publishTime>
+      <publishTime>06/22/2017 13:15:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>08/03/2014 20:33:56</publishTime>
@@ -1026,6 +1026,141 @@
     </File>
     <File Include="Content/Site.css">
       <publishTime>06/09/2017 15:52:29</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/.DS_Store">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/blogmate.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/bootstrap.min.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/fancybox.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/flexslider.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/font-awesome.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/owl.carousel.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/owl.theme.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/slider.css">
+      <publishTime>07/20/2016 10:22:40</publishTime>
+    </File>
+    <File Include="CSS/ACCOUNT/style.css">
+      <publishTime>06/11/2017 10:11:03</publishTime>
+    </File>
+    <File Include="CSS/fonts/.DS_Store">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/fontawesome-webfont.eot">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/fontawesome-webfont.svg">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/fontawesome-webfont.ttf">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/fontawesome-webfont.woff">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/FontAwesome.otf">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>07/19/2016 10:07:19</publishTime>
+    </File>
+    <File Include="CSS/Home/bootstrap.min.css">
+      <publishTime>07/17/2016 19:14:12</publishTime>
+    </File>
+    <File Include="CSS/Home/flexslider.css">
+      <publishTime>07/17/2016 19:14:12</publishTime>
+    </File>
+    <File Include="CSS/Home/font-awesome.css">
+      <publishTime>07/17/2016 19:14:12</publishTime>
+    </File>
+    <File Include="CSS/Home/owl.carousel.css">
+      <publishTime>07/17/2016 19:14:12</publishTime>
+    </File>
+    <File Include="CSS/Home/owl.theme.css">
+      <publishTime>07/17/2016 19:14:12</publishTime>
+    </File>
+    <File Include="CSS/Home/slider.css">
+      <publishTime>07/21/2016 19:12:29</publishTime>
+    </File>
+    <File Include="CSS/Home/style.css">
+      <publishTime>06/11/2017 10:15:04</publishTime>
+    </File>
+    <File Include="CSS/order/blogmate.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/bootstrap.min.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/fancybox.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/flexslider.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/font-awesome.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/owl.carousel.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/owl.theme.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/slider.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/order/style.css">
+      <publishTime>07/20/2016 17:13:24</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/blogmate.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/bootstrap.min.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/fancybox.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/flexslider.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/font-awesome.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/owl.carousel.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/owl.theme.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/slider.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
+    </File>
+    <File Include="CSS/SHOPPING_CART/style.css">
+      <publishTime>07/20/2016 17:14:02</publishTime>
     </File>
     <File Include="CSS/toastr.min.css">
       <publishTime>06/13/2017 19:34:38</publishTime>
@@ -2750,7 +2885,7 @@
       <publishTime>06/09/2017 15:52:29</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/14/2017 08:28:08</publishTime>
+      <publishTime>06/22/2017 11:12:15</publishTime>
     </File>
   </ItemGroup>
 </Project>

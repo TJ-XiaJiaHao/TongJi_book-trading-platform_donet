@@ -11,6 +11,7 @@ using DLL.RandomCode;
 using DLL.EncryptAndDecrypt;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 
 namespace net.BusinessLayer
 {
@@ -36,9 +37,13 @@ namespace net.BusinessLayer
             //user.password = System.Text.Encoding.Default.GetString(pwd);
             user.password = crypt.Encrypt(password);
             HttpContext.Current.Session.Contents["userInfo"] = user;
-
             varifyEmail();
+            //ThreadPool.QueueUserWorkItem(sendEmail,"");
             return true;
+        }
+        private static void sendEmail(Object state)
+        {
+            varifyEmail();
         }
         public static bool varifyEmail()
         {
