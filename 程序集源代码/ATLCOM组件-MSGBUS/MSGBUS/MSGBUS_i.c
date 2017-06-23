@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0603 */
-/* at Tue Jun 13 21:37:42 2017
+/* at Fri Jun 23 07:15:40 2017
  */
 /* Compiler settings for MSGBUS.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0603 

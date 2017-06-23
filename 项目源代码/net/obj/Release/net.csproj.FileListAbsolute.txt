@@ -166,3 +166,4 @@ C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平
 C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\项目源代码\net\obj\Release\net.csproj.ResolveComReference.cache
 C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\项目源代码\net\obj\Release\net.dll
 C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\项目源代码\net\obj\Release\net.pdb
+C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\项目源代码\net\bin\RandomCode.dll

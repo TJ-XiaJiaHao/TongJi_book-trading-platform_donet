@@ -1,0 +1,87 @@
+﻿Build started 2017/6/23 7:15:40.
+     1>Project "C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\MSGBUS\MSGBUS.vcxproj" on node 2 (Rebuild target(s)).
+     1>Midl:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\midl.exe /D NDEBUG /W1 /nologo /char signed /env win32 /Oicf /h "MSGBUS_i.h" /iid "MSGBUS_i.c" /proxy "MSGBUS_p.c" /tlb "Release\MSGBUS.tlb" /robust MSGBUS.idl 
+         Processing .\MSGBUS.idl
+         MSGBUS.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.idl
+         oaidl.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.idl
+         objidl.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwn.idl
+         unknwn.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.idl
+         wtypes.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypesbase.idl
+         wtypesbase.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h
+         basetsd.h
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h
+         guiddef.h
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.idl
+         ocidl.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oleidl.idl
+         oleidl.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\servprov.idl
+         servprov.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.idl
+         urlmon.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\msxml.idl
+         msxml.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\shobjidl.idl
+         shobjidl.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\docobj.idl
+         docobj.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\shtypes.idl
+         shtypes.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\comcat.idl
+         comcat.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\propidl.idl
+         propidl.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\prsht.idl
+         prsht.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\propsys.idl
+         propsys.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\StructuredQueryCondition.idl
+         StructuredQueryCondition.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ObjectArray.idl
+         ObjectArray.idl
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
+         oaidl.acf
+         Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.acf
+         ocidl.acf
+       ClCompile:
+         D:\visual studio 2013\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _MERGE_PROXYSTUB /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Release\MSGBUS.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\visual studio 2013\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _MERGE_PROXYSTUB /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\MSGBUS.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt compreg.cpp MSGBUS.cpp
+         compreg.cpp
+         MSGBUS.cpp
+     1>MSGBUS.cpp(112): warning C4101: 'str' : unreferenced local variable
+         Generating Code...
+         D:\visual studio 2013\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _MERGE_PROXYSTUB /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+         D:\visual studio 2013\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _MERGE_PROXYSTUB /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt MSGBUS_i.c xdlldata.c
+         MSGBUS_i.c
+         xdlldata.c
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /l"0x0409" /IRelease\ /nologo /fo"Release\MSGBUS.res" MSGBUS.rc 
+       Link:
+         D:\visual studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.dll" /INCREMENTAL:NO /NOLOGO comsvcs.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\MSGBUS.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL Release\MSGBUS.res
+         Release\compreg.obj
+         Release\dllmain.obj
+         Release\MSGBUS.obj
+         Release\MSGBUS_i.obj
+         Release\stdafx.obj
+         Release\xdlldata.obj
+            Creating library C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.lib and object C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.exp
+         MSGBUS.vcxproj -> C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.dll
+       RegisterOutput:
+         regsvr32 /s "C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.dll"
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(1608,5): warning MSB3075: The command "regsvr32 /s "C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\Release\MSGBUS.dll"" exited with code 5. Please verify that you have sufficient rights to run this command.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(1620,5): error MSB8011: Failed to register output. Please try enabling Per-user Redirection or register the component from a command prompt with elevated permissions.
+     1>Done Building Project "C:\Users\Administrator\Desktop\tool\projects\net\期末项目-二手书交易平台\程序集源代码\ATLCOM组件-MSGBUS\MSGBUS\MSGBUS.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:13.48

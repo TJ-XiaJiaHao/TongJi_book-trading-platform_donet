@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+    <_NewBackgroundProfile>False</_NewBackgroundProfile>
     <_PublishTargetUrl>C:\Users\Administrator\Desktop\publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
@@ -62,10 +62,10 @@
       <publishTime>01/05/2012 11:08:46</publishTime>
     </File>
     <File Include="bin/net.dll">
-      <publishTime>06/22/2017 13:15:42</publishTime>
+      <publishTime>06/22/2017 19:39:20</publishTime>
     </File>
     <File Include="bin/net.pdb">
-      <publishTime>06/22/2017 13:15:42</publishTime>
+      <publishTime>06/22/2017 19:39:20</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>08/03/2014 20:33:56</publishTime>
